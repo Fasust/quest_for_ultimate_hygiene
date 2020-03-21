@@ -1,6 +1,8 @@
 package com.questforultimatehygiene.model;
 
 /**
+ * Level Incline relative to total EXP
+ *
  * Level   XP      Difference
  * 1       0       -
  * 2       100     100
@@ -10,11 +12,12 @@ package com.questforultimatehygiene.model;
  * ...
  */
 public class Player {
-    static final int EXP_INCLINE = 100;
-    private final OnLevelUp onLevelUp;
-    
-    private int exp = 0;
-    private int level = 0;
+    static final int EXP_INCLINE = 100; //Amount that the expNeededTillLevelUp increases ever level
+    private final OnLevelUp onLevelUp; //called eminently after level up
+
+    private int exp = 0; //Current exp. Starts at 0 every level
+    private int level = 0; //Current level. Goes up when adding exp
+    //How many total exp are needed to advance to the next level. Increases every level
     private int expNeededTillLevelUp = 100;
 
     public Player(OnLevelUp onLevelUp) {
@@ -28,6 +31,7 @@ public class Player {
             exp += amount;
         }
     }
+
     private void levelUp(int accessExp){
         exp = accessExp;
         level++;
@@ -35,6 +39,7 @@ public class Player {
         onLevelUp.onLevelUp();
     }
 
+    //Getters ----
     public int getExp() {
         return exp;
     }
