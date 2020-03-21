@@ -84,7 +84,7 @@ public class Bathroom extends Fragment implements View.OnClickListener {
         geheInsBad = QuestList.getInstance().GetGeheInsBad();
 
         // A popup will be displayed that shows Quest 1 when the App is started
-        TriggerGeheInsBadQuest();
+        //TriggerGeheInsBadQuest();
 
         // Inflate the layout for this fragment
 
