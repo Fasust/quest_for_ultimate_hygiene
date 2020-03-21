@@ -1,5 +1,7 @@
 package com.questforultimatehygiene.model;
 
+import com.questforultimatehygiene.R;
+
 /**
  * Singleton for a list of Quests. Access via getInstance()
  * Quests so far: GeheInsBad, HaendeWaschen, ObstWaschen
@@ -8,7 +10,7 @@ public class QuestList {
     private static QuestList questList_instance = null;
 
     private Quest geheInsBad;
-    private TimedQuest haendeWaschen;
+    private TimedQuest handwashing;
     private Quest obstWaschen;
 
     /**
@@ -31,9 +33,9 @@ public class QuestList {
         geheInsBad = new Quest(geheInsBadName, geheInsBadDescription, 51);
 
         int timeBetweenActions = 5; // in seconds
-        int haendeWaschenName = 0;
-        int haendeWaschenDescription = 0;
-        haendeWaschen = new TimedQuest(haendeWaschenName, haendeWaschenDescription, 50, timeBetweenActions);
+        int handwashingName = R.string.quest_handwashing_title;
+        int handwashingDescription = R.string.quest_handwashing_content;
+        handwashing = new TimedQuest(handwashingName, handwashingDescription, 50, timeBetweenActions);
 
         int obstWaschenName = 0;
         int obstWaschenDescription = 0;
@@ -46,10 +48,10 @@ public class QuestList {
         return geheInsBad;
     }
 
-    public TimedQuest GetHaendeWaschen(){
+    public TimedQuest GetHandwashing(){
         if(questList_instance == null)
             return null;
-        return haendeWaschen;
+        return handwashing;
     }
 
     public Quest GetObstWaschen(){
