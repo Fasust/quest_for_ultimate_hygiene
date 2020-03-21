@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import com.questforultimatehygiene.model.Quest;
 import com.questforultimatehygiene.model.QuestList;
@@ -74,6 +75,19 @@ public class Flur extends Fragment {
 
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_frontdoor, container, false);
+
+    }
+
+    @Override
+    public void onViewCreated(View view, Bundle savedInstanceState){
+        Button completeQuestButton =  getView().findViewById(R.id.quest_button_on_Home);
+
+        completeQuestButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MainActivity.player.addExperience(50);
+            }
+        });
     }
 
 

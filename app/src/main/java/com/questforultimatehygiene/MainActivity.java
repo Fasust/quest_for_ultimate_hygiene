@@ -8,8 +8,14 @@ import androidx.viewpager.widget.ViewPager;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.WindowManager;
+import android.widget.ProgressBar;
+
+import com.questforultimatehygiene.model.OnExperienceGain;
+import com.questforultimatehygiene.model.OnLevelUp;
+import com.questforultimatehygiene.model.Player;
 
 public class MainActivity extends FragmentActivity {
+    static public Player player;
 
     public ViewPager viewPager;
     public ViewPagerAdapter viewPagerAdapter;
@@ -24,6 +30,20 @@ public class MainActivity extends FragmentActivity {
         viewPager.setPageTransformer(true, new ZoomOutPageTransformer());
         setPagerAdapter();
 
+        final ProgressBar expBar = findViewById(R.id.progressBar3);
+
+        player = new Player(new OnLevelUp(){
+            @Override
+            public void onLevelUp(){
+
+            }
+        }, new OnExperienceGain(){
+            @Override
+            public void onExperienceGain(){
+                expBar.setProgress(player.getExp());
+                expBar.setMax(player.getExpNeededTillLevelUp());
+            }
+        });
     }
 
     private void setPagerAdapter(){
