@@ -20,7 +20,7 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
             case 2:
                 return new Bathroom();
             case 3:
-                return new Workdesk();
+                return new Library();
             default:
                 return null;
         }

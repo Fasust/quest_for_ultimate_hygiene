@@ -12,5 +12,8 @@
     <string name="quest_welcome_home_title">Willkommen zuhause!</string>
     <string name="quest_welcome_home_content">Du bist zurück in Deinem WLAN.\nLeg Deine Schuhe ab.\nWasch Dir die Hände.\nReinige Dein Handy.</string>
 
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
 
 </resources>
