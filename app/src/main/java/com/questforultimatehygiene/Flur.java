@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 
@@ -102,7 +103,18 @@ public class Flur extends Fragment {
 
         //then we will inflate the custom alert dialog xml that we created
         View dialogView = LayoutInflater.from(getActivity()).inflate(R.layout.popup_quest, viewGroup, false);
+        TextView questName = dialogView.findViewById(R.id.quest_name);
+        questName.setText(R.string.quest_handwashing_title);
+        TextView questDescription = dialogView.findViewById(R.id.quest_description);
+        questDescription.setText(R.string.quest_handwashing_content);
 
+        Button acceptQuest = dialogView.findViewById(R.id.start_quest_button);
+        acceptQuest.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // TODO start the actual Quest
+            }
+        });
 
         //Now we need an AlertDialog.Builder object
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
