@@ -15,8 +15,6 @@ import com.questforultimatehygiene.model.Quest;
 import com.questforultimatehygiene.model.QuestList;
 import com.questforultimatehygiene.model.TimedQuest;
 
-import java.util.TimerTask;
-
 
 /**
  * A simple {@link Fragment} subclass.
@@ -34,7 +32,6 @@ public class Flur extends Fragment {
 
     private String mParam1;
     private String mParam2;
-    private Quest obstWaschen;
     private TimedQuest handwashing;
 
     private OnFragmentInteractionListener mListener;
@@ -74,7 +71,6 @@ public class Flur extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Save references to relevant quests within the Flur
-        obstWaschen = QuestList.getInstance().GetObstWaschen();
         handwashing = QuestList.getInstance().GetHandwashing();
 
         // Inflate the layout for this fragment
@@ -84,7 +80,7 @@ public class Flur extends Fragment {
         startButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                showQuestPopUp(handwashing.getName(), handwashing.getDescription());
+                showQuestPopUp(handwashing.getTitle(), handwashing.getContent());
             }
         });
         return frontdoorView;

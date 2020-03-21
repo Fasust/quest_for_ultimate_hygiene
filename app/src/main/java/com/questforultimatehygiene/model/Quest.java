@@ -10,21 +10,21 @@ import com.questforultimatehygiene.R;
  * @author Oscheibe
  */
 public class Quest {
-    private int name;
-    private int description;
+    private int title = R.string.hello_blank_fragment;
+    private int content = R.string.hello_blank_fragment;
     private String mediaPath;
     private Uri mediaUri = null;
     private int experience;
 
-    public Quest(int name, int description, int experience){
-        this.name = name;
-        this.description = description;
+    public Quest(int title, int content, int experience){
+        this.title = title;
+        this.content = content;
         this.experience = experience;
     }
 
-    public Quest(int name, int description, int experience, String mediaPath){
-        this.name = name;
-        this.description = description;
+    public Quest(int title, int content, int experience, String mediaPath){
+        this.title = title;
+        this.content = content;
         this.experience = experience;
         setMediaPath(this.mediaPath);
     }
@@ -59,11 +59,11 @@ public class Quest {
         return experience;
     }
 
-    public int getDescription() {
-        return description;
+    public int getContent() {
+        return content;
     }
 
-    public int getName() {
-        return name;
+    public int getTitle() {
+        return title;
     }
 }
