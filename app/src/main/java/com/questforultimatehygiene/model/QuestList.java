@@ -27,7 +27,8 @@ public class QuestList {
     private void InitiateQuestList(){
         // public Quest(String name, String description, int experience, String mediaPath){
         geheInsBad = new Quest("Gehe ins Bad", "", 50);
-        haendeWaschen = new TimedQuest("Hände Waschen", "", 50, 30);
+        int timeBetweenActions = 5; // in seconds
+        haendeWaschen = new TimedQuest("Hände Waschen", "", 50, timeBetweenActions);
         obstWaschen = new Quest("Obst Waschen", "", 100);
     }
 

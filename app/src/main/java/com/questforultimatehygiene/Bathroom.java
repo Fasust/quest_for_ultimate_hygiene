@@ -10,6 +10,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.questforultimatehygiene.model.QuestList;
+import com.questforultimatehygiene.model.TimedQuest;
+
+import java.util.TimerTask;
+
 
 /**
  * A simple {@link Fragment} subclass.
@@ -26,6 +31,7 @@ public class Bathroom extends Fragment {
 
     private String mParam1;
     private String mParam2;
+    private TimedQuest haendeWaschen;
 
     private OnFragmentInteractionListener mListener;
 
@@ -63,6 +69,9 @@ public class Bathroom extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        // Save references to relevant quests within the Bathroom
+        haendeWaschen = QuestList.getInstance().GetHaendeWaschen();
+
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_bathroom, container, false);
     }
@@ -70,4 +79,33 @@ public class Bathroom extends Fragment {
     public interface OnFragmentInteractionListener {
         void onFragmentInteraction(Uri uri);
     }
+
+    /**
+     * This is an example of how a timed quest would be called when a user clicks the button
+     * The time between the two actions is determined and stored in the QuestList and TimedQuest classes
+     */
+    private void ExampleTimedQuestTrigger(){
+        TimerTask greetUser = new TimerTask() {
+            @Override
+            public void run() {
+                System.out.println("Hello User");
+            }
+        };
+
+        TimerTask sayGoodbyeToUser = new TimerTask() {
+            @Override
+            public void run() {
+                System.out.println("Goodbye User");
+            }
+        };
+
+        /**
+         * The first Task will be executed immediatley the second task after (now) 5 seconds
+         */
+        haendeWaschen.startActivity(greetUser, sayGoodbyeToUser);
+
+    }
+
+
+
 }
