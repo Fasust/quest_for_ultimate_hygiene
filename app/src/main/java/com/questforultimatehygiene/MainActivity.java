@@ -88,8 +88,6 @@ public class MainActivity extends FragmentActivity {
         });
     }
 
-
-
     private void showLevelUpPopUp() {
         ViewGroup viewGroup = findViewById(android.R.id.content);
 
