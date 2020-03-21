@@ -80,7 +80,7 @@ public class Bathroom extends Fragment implements View.OnClickListener {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Save references to relevant quests within the Bathroom
-        haendeWaschen = QuestList.getInstance().GetHaendeWaschen();
+        haendeWaschen = QuestList.getInstance().GetHandwashing();
         geheInsBad = QuestList.getInstance().GetGeheInsBad();
 
         // A popup will be displayed that shows Quest 1 when the App is started
