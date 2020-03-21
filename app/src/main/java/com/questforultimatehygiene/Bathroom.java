@@ -1,13 +1,8 @@
 package com.questforultimatehygiene;
 
-import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,7 +10,14 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.ImageView;
+
+import androidx.fragment.app.Fragment;
+
+import com.questforultimatehygiene.model.Quest;
+import com.questforultimatehygiene.model.QuestList;
+import com.questforultimatehygiene.model.TimedQuest;
+
+import java.util.TimerTask;
 
 
 /**
@@ -33,6 +35,9 @@ public class Bathroom extends Fragment implements View.OnClickListener {
 
     private String mParam1;
     private String mParam2;
+    private boolean solvedGeheInsBadQuestOnce = false; // To fix a bug
+    private TimedQuest haendeWaschen;
+    private Quest geheInsBad;
 
     public ImageView imageView2;
 
@@ -73,6 +78,13 @@ public class Bathroom extends Fragment implements View.OnClickListener {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        // Save references to relevant quests within the Bathroom
+        haendeWaschen = QuestList.getInstance().GetHaendeWaschen();
+        geheInsBad = QuestList.getInstance().GetGeheInsBad();
+
+        // A popup will be displayed that shows Quest 1 when the App is started
+        TriggerGeheInsBadQuest();
+
         // Inflate the layout for this fragment
 
         View view = inflater.inflate(R.layout.fragment_bathroom, container, false);
@@ -89,7 +101,45 @@ public class Bathroom extends Fragment implements View.OnClickListener {
 
     }
 
+    private void TriggerGeheInsBadQuest(){
+        if(solvedGeheInsBadQuestOnce == true){
+            return;
+        }
+        solvedGeheInsBadQuestOnce = true;
+        System.out.println("Sie haben die Quest " + geheInsBad.getName() + " erfüllt!");
+        MainActivity.player.addExperience(geheInsBad.getExperience());
+    }
+
     public interface OnFragmentInteractionListener {
         void onFragmentInteraction(Uri uri);
     }
+
+    /**
+     * This is an example of how a timed quest would be called when a user clicks the button
+     * The time between the two actions is determined and stored in the QuestList and TimedQuest classes
+     */
+    private void ExampleTimedQuestTrigger(){
+        TimerTask greetUser = new TimerTask() {
+            @Override
+            public void run() {
+                System.out.println("Hello User");
+            }
+        };
+
+        TimerTask sayGoodbyeToUser = new TimerTask() {
+            @Override
+            public void run() {
+                System.out.println("Goodbye User");
+            }
+        };
+
+        /**
+         * The first Task will be executed immediatley the second task after (now) 5 seconds
+         */
+        haendeWaschen.startActivity(greetUser, sayGoodbyeToUser);
+
+    }
+
+
+
 }

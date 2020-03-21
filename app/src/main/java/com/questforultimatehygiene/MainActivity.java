@@ -2,18 +2,25 @@ package com.questforultimatehygiene;
 
 import android.content.Intent;
 import android.os.Bundle;
-
-import androidx.fragment.app.FragmentActivity;
-import androidx.viewpager.widget.ViewPager;
-
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.ProgressBar;
+import android.widget.TextView;
+
+import androidx.fragment.app.FragmentActivity;
+import androidx.viewpager.widget.ViewPager;
+
+import com.questforultimatehygiene.model.OnExperienceGain;
+import com.questforultimatehygiene.model.OnLevelUp;
+import com.questforultimatehygiene.model.Player;
+
 
 public class MainActivity extends FragmentActivity implements View.OnClickListener {
+    static public Player player;
 
     public ViewPager viewPager;
     public ViewPagerAdapter viewPagerAdapter;
@@ -33,6 +40,23 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         viewPager.setPageTransformer(true, new ZoomOutPageTransformer());
         setPagerAdapter();
 
+        final ProgressBar expBar = findViewById(R.id.progressBar3);
+        final TextView levelCounterView = findViewById(R.id.level_counter);
+
+        player = new Player(new OnLevelUp(){
+            @Override
+            public void onLevelUp(){
+                int currentLevel = Integer.parseInt( levelCounterView.getText().toString());
+                currentLevel++;
+                levelCounterView.setText( "" + currentLevel );
+            }
+        }, new OnExperienceGain(){
+            @Override
+            public void onExperienceGain(){
+                expBar.setProgress(player.getExp());
+                expBar.setMax(player.getExpNeededTillLevelUp());
+            }
+        });
     }
 
     private void setPagerAdapter(){
