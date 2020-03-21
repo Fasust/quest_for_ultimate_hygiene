@@ -28,7 +28,7 @@
         android:layout_marginTop="24dp"
         android:layout_marginEnd="16dp"
         android:indeterminate="false"
-        android:progress="25"
+        android:progress="0"
         android:progressTint="#6D2302"
         app:layout_constraintEnd_toStartOf="@+id/level_counter"
         app:layout_constraintStart_toEndOf="@+id/imageView"
