@@ -18,14 +18,19 @@
             android:gravity="center"
             android:text="Badezimmer" />
 
-        <ImageButton
-            android:id="@+id/imageButton"
+        <Button
+            android:id="@+id/button3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="523dp"
-            android:background="@null"
-            android:foregroundGravity="center_vertical|clip_horizontal|center|center_horizontal"
-            android:src="@drawable/share2" />
+            android:text="Animation" />
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="match_parent"
+            android:layout_height="173dp"
+            android:layout_marginTop="100dp"
+            android:src="@drawable/klopapier"
+            tools:visibility="invisible" />
 
     </RelativeLayout>
 

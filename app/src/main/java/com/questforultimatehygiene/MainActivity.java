@@ -1,5 +1,6 @@
 package com.questforultimatehygiene;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.FragmentActivity;
@@ -7,12 +8,17 @@ import androidx.viewpager.widget.ViewPager;
 
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.view.WindowManager;
+import android.widget.ImageButton;
+import android.widget.TextView;
 
-public class MainActivity extends FragmentActivity {
+public class MainActivity extends FragmentActivity implements View.OnClickListener {
 
     public ViewPager viewPager;
     public ViewPagerAdapter viewPagerAdapter;
+    public ImageButton imageButton2;
+    public TextView textView2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +27,9 @@ public class MainActivity extends FragmentActivity {
         setContentView(R.layout.activity_main);
 
         viewPager = (ViewPager)findViewById(R.id.viewPager);
+        imageButton2 = (ImageButton)findViewById(R.id.imageButton2);
+        textView2 = (TextView)findViewById(R.id.textView2);
+        imageButton2.setOnClickListener(this);
         viewPager.setPageTransformer(true, new ZoomOutPageTransformer());
         setPagerAdapter();
 
@@ -53,4 +62,15 @@ public class MainActivity extends FragmentActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    @Override
+    public void onClick(View view) {
+        String points = textView2.getText().toString();
+        Intent sendIntent = new Intent();
+        sendIntent.setAction(Intent.ACTION_SEND);
+        sendIntent.putExtra(Intent.EXTRA_TEXT, "Wow! Schon "+points+" Klopapierrollen bei 'Quest for Ultimate Hygiene'");
+        sendIntent.setType("text/plain");
+
+        Intent shareIntent = Intent.createChooser(sendIntent, null);
+        startActivity(shareIntent);
+    }
 }
