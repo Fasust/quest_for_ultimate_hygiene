@@ -20,7 +20,7 @@ import com.questforultimatehygiene.model.OnLevelUp;
 import com.questforultimatehygiene.model.Player;
 
 
-public class MainActivity extends FragmentActivity {
+public class MainActivity extends FragmentActivity implements View.OnClickListener {
     static public Player player;
 
     //Needed for Fragment View
@@ -48,19 +48,17 @@ public class MainActivity extends FragmentActivity {
 
     private void setUpShareButton(){
         final ImageButton shareButton = findViewById(R.id.share_button);
-        shareButton.setOnClickListener(new View.OnClickListener() {
+        shareButton.setOnClickListener(this);
+    }
 
-            @Override
-            public void onClick(View view) {
-                Intent sendIntent = new Intent();
-                sendIntent.setAction(Intent.ACTION_SEND);
-                sendIntent.putExtra(Intent.EXTRA_TEXT, "Wow! Schon "+ player.getLevel() +" Sauberkeits Punkte bei 'Quest for Ultimate Hygiene'");
-                sendIntent.setType("text/plain");
+    public void onClick(View view) {
+        Intent sendIntent = new Intent();
+        sendIntent.setAction(Intent.ACTION_SEND);
+        sendIntent.putExtra(Intent.EXTRA_TEXT, "Wow! Schon "+ player.getLevel() +" Sauberkeits Punkte bei 'Quest for Ultimate Hygiene'");
+        sendIntent.setType("text/plain");
 
-                Intent shareIntent = Intent.createChooser(sendIntent, null);
-                startActivity(shareIntent);
-            }
-        });
+        Intent shareIntent = Intent.createChooser(sendIntent, null);
+        startActivity(shareIntent);
     }
 
     private void setUpExpDisplay(){
