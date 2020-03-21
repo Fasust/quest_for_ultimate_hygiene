@@ -9,39 +9,44 @@
 
         <ImageView
             android:id="@+id/imageView4"
-            android:layout_marginTop="42dp"
+            android:layout_marginTop="24dp"
             android:layout_width="wrap_content"
-            android:layout_height="240dp"
+            android:layout_height="190dp"
             android:minHeight="64dp"
-            android:src="@drawable/hand_wash" />
+            android:src="@drawable/hand_wash_with_bottle"/>
 
         <TextView
         android:id="@+id/quest_name"
-        android:layout_width="274dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="14dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
         android:text="Quest Name"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display1"/>
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_horizontal"
+            android:textSize="24sp"/>
 
     <TextView
-        android:id="@+id/quest_desciption"
+        android:id="@+id/quest_description"
         android:layout_width="280dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
         android:layout_marginTop="8dp"
         android:text="Quest Description"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+        android:textSize="16sp"/>
 
-        <Button
-            android:id="@+id/complete_quest_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="240dp"
-            android:layout_marginBottom="8dp"
-            android:layout_gravity="center_horizontal|bottom"
-            android:text="Quest starten"/>
+    <Button
+        android:id="@+id/start_quest_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal|bottom"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/button_background_roundedcorners"
+        android:paddingStart="12dp"
+        android:paddingEnd="12dp"
+        android:text="Quest starten" />
 
-    </LinearLayout>
+</LinearLayout>

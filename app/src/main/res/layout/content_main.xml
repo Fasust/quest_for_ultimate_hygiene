@@ -13,14 +13,13 @@
         android:layout_width="37dp"
         android:layout_height="36dp"
         android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:src="@drawable/klopapier"
+        android:src="@drawable/clean"
         app:layout_constraintBottom_toTopOf="@+id/viewPager"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ProgressBar
-        android:id="@+id/progressBar3"
+        android:id="@+id/exp_bar"
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="0dp"
         android:layout_height="16dp"
@@ -31,7 +30,7 @@
         android:layout_marginRight="16dp"
         android:indeterminate="false"
         android:progress="25"
-        android:progressTint="#6D2302"
+        android:progressTint="#00BCD4"
         app:layout_constraintEnd_toStartOf="@+id/level_counter_view"
         app:layout_constraintStart_toEndOf="@+id/imageView"
         app:layout_constraintTop_toTopOf="parent" />
@@ -45,7 +44,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/progressBar3">
+        app:layout_constraintTop_toBottomOf="@+id/exp_bar">
 
     </androidx.viewpager.widget.ViewPager>
 
@@ -60,6 +59,23 @@
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/share_button"
+        android:layout_width="28dp"
+        android:layout_height="29dp"
+        android:layout_marginStart="19dp"
+        android:layout_marginLeft="19dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="19dp"
+        android:background="@null"
+        android:src="@drawable/share2"
+        app:layout_constraintBottom_toTopOf="@+id/viewPager"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/level_counter_view"
         app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
