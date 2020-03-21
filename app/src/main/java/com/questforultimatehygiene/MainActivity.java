@@ -4,7 +4,6 @@ import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,33 +20,59 @@ import com.questforultimatehygiene.model.OnLevelUp;
 import com.questforultimatehygiene.model.Player;
 
 
-public class MainActivity extends FragmentActivity implements View.OnClickListener {
+public class MainActivity extends FragmentActivity {
     static public Player player;
 
+    //Needed for Fragment View
     public ViewPager viewPager;
     public ViewPagerAdapter viewPagerAdapter;
-    public ImageButton imageButton2;
-    public TextView textView2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        //Set up Fragment View
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         super.onCreate(savedInstanceState);
+
+        setUpPagerAdapter();
+        setUpShareButton();
+        setUpExpDisplay();
+    }
+
+    private void setUpPagerAdapter(){
         setContentView(R.layout.activity_main);
-
-        viewPager = (ViewPager)findViewById(R.id.viewPager);
-        imageButton2 = (ImageButton)findViewById(R.id.imageButton2);
-        final TextView levelCounterView =  (TextView)findViewById(R.id.level_counter_view);
-        imageButton2.setOnClickListener(this);
+        viewPager = findViewById(R.id.viewPager);
         viewPager.setPageTransformer(true, new ZoomOutPageTransformer());
-        setPagerAdapter();
+        viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager());
+        viewPager.setAdapter(viewPagerAdapter);
+    }
 
-        final ProgressBar expBar = findViewById(R.id.progressBar3);
+    private void setUpShareButton(){
+        final ImageButton shareButton = findViewById(R.id.share_button);
+        shareButton.setOnClickListener(new View.OnClickListener() {
 
+            @Override
+            public void onClick(View view) {
+                Intent sendIntent = new Intent();
+                sendIntent.setAction(Intent.ACTION_SEND);
+                sendIntent.putExtra(Intent.EXTRA_TEXT, "Wow! Schon "+ player.getLevel() +" Sauberkeits Punkte bei 'Quest for Ultimate Hygiene'");
+                sendIntent.setType("text/plain");
 
+                Intent shareIntent = Intent.createChooser(sendIntent, null);
+                startActivity(shareIntent);
+            }
+        });
+    }
+
+    private void setUpExpDisplay(){
+        //Load UI elements
+        final TextView levelCounterView = findViewById(R.id.level_counter_view);
+        final ProgressBar expBar = findViewById(R.id.exp_bar);
+
+        //Set up subscribers to the player
         player = new Player(new OnLevelUp(){
             @Override
             public void onLevelUp(){
+                //Behaviour when leveling up
                 int currentLevel = Integer.parseInt( levelCounterView.getText().toString());
                 currentLevel++;
                 levelCounterView.setText( "" + currentLevel );
@@ -56,38 +81,14 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         }, new OnExperienceGain(){
             @Override
             public void onExperienceGain(){
+                //Behaviour when gaining exp
                 expBar.setProgress(player.getExp());
                 expBar.setMax(player.getExpNeededTillLevelUp());
             }
         });
     }
 
-    private void setPagerAdapter(){
-        viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager());
-        viewPager.setAdapter(viewPagerAdapter);
-    }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
 
     private void showLevelUpPopUp() {
         ViewGroup viewGroup = findViewById(android.R.id.content);
@@ -102,15 +103,19 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         alertDialog.show();
     }
 
+    //For Fragment View -----
     @Override
-    public void onClick(View view) {
-        String points = textView2.getText().toString();
-        Intent sendIntent = new Intent();
-        sendIntent.setAction(Intent.ACTION_SEND);
-        sendIntent.putExtra(Intent.EXTRA_TEXT, "Wow! Schon "+points+" Klopapierrollen bei 'Quest for Ultimate Hygiene'");
-        sendIntent.setType("text/plain");
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
 
-        Intent shareIntent = Intent.createChooser(sendIntent, null);
-        startActivity(shareIntent);
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.action_settings) {
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 }
