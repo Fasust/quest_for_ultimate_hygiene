@@ -1,14 +1,18 @@
 package com.questforultimatehygiene;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 
 /**
@@ -66,6 +70,10 @@ public class Kitchen extends Fragment {
         return inflater.inflate(R.layout.fragment_kitchen, container, false);
     }
 
+    @Override
+    public void onViewCreated(View view, Bundle savedInstanceState) {
+
+    }
 
     /**
      * This interface must be implemented by activities that contain this
