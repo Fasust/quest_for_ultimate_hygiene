@@ -1,14 +1,14 @@
 package com.questforultimatehygiene;
 
-import android.content.Context;
+import android.app.AlertDialog;
 import android.net.Uri;
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+
+import androidx.fragment.app.Fragment;
 
 
 /**
@@ -65,9 +65,36 @@ public class Frontdoor extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_frontdoor, container, false);
+        View frontdoorView =  inflater.inflate(R.layout.fragment_frontdoor, container, false);
+
+        Button startButton = frontdoorView.findViewById(R.id.button_quest_frontdoor);
+        startButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showQuestPopUp();
+            }
+        });
+        return frontdoorView;
     }
 
+    private void showQuestPopUp() {
+        //before inflating the custom alert dialog layout, we will get the current activity viewgroup
+        ViewGroup viewGroup = getActivity().findViewById(android.R.id.content);
+
+        //then we will inflate the custom alert dialog xml that we created
+        View dialogView = LayoutInflater.from(getActivity()).inflate(R.layout.popup_quest, viewGroup, false);
+
+
+        //Now we need an AlertDialog.Builder object
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+
+        //setting the view of the builder to our custom view that we already inflated
+        builder.setView(dialogView);
+
+        //finally creating the alert dialog and displaying it
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
+    }
 
     /**
      * This interface must be implemented by activities that contain this

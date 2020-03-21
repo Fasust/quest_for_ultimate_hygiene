@@ -12,7 +12,7 @@
         android:background="#03A9F4">
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/button_quest_frontdoor"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Quest"
