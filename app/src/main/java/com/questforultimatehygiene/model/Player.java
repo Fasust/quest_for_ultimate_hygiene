@@ -35,7 +35,7 @@ public class Player {
     private void levelUp(int accessExp){
         exp = accessExp;
         level++;
-        expNeededTillLevelUp = expNeededTillLevelUp + EXP_INCLINE;
+        expNeededTillLevelUp += EXP_INCLINE;
         onLevelUp.onLevelUp();
     }
 
