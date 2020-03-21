@@ -1,6 +1,5 @@
 package com.questforultimatehygiene;
 
-import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 
@@ -14,12 +13,12 @@ import android.view.ViewGroup;
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link Frontdoor.OnFragmentInteractionListener} interface
+ * {@link Flur.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link Frontdoor#newInstance} factory method to
+ * Use the {@link Flur#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class Frontdoor extends Fragment {
+public class Flur extends Fragment {
 
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -30,7 +29,7 @@ public class Frontdoor extends Fragment {
 
     private OnFragmentInteractionListener mListener;
 
-    public Frontdoor() {
+    public Flur() {
         // Required empty public constructor
     }
 
@@ -43,8 +42,8 @@ public class Frontdoor extends Fragment {
      * @return A new instance of fragment Frontdoor.
      */
 
-    public static Frontdoor newInstance(String param1, String param2) {
-        Frontdoor fragment = new Frontdoor();
+    public static Flur newInstance(String param1, String param2) {
+        Flur fragment = new Flur();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -64,6 +63,8 @@ public class Frontdoor extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        //
+
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_frontdoor, container, false);
     }

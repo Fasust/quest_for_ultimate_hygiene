@@ -14,7 +14,7 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
     public Fragment getItem(int position) {
         switch (position) {
             case 0:
-                return new Frontdoor();
+                return new Flur();
             case 1:
                 return new Kitchen();
             case 2:
