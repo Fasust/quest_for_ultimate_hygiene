@@ -13,6 +13,9 @@ import androidx.fragment.app.Fragment;
 
 import com.questforultimatehygiene.model.Quest;
 import com.questforultimatehygiene.model.QuestList;
+import com.questforultimatehygiene.model.TimedQuest;
+
+import java.util.TimerTask;
 
 
 /**
@@ -32,6 +35,7 @@ public class Flur extends Fragment {
     private String mParam1;
     private String mParam2;
     private Quest obstWaschen;
+    private TimedQuest handwashing;
 
     private OnFragmentInteractionListener mListener;
 
@@ -71,6 +75,7 @@ public class Flur extends Fragment {
                              Bundle savedInstanceState) {
         // Save references to relevant quests within the Flur
         obstWaschen = QuestList.getInstance().GetObstWaschen();
+        handwashing = QuestList.getInstance().GetHandwashing();
 
         // Inflate the layout for this fragment
         View frontdoorView =  inflater.inflate(R.layout.fragment_frontdoor, container, false);
@@ -79,7 +84,7 @@ public class Flur extends Fragment {
         startButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                showQuestPopUp();
+                showQuestPopUp(handwashing.getName(), handwashing.getDescription());
             }
         });
         return frontdoorView;
@@ -87,18 +92,10 @@ public class Flur extends Fragment {
 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState){
-/*        Button completeQuestButton =  getView().findViewById(R.id.quest_button_on_Home);
 
-        completeQuestButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                TriggerObstWaschenQuest();
-            }
-        });*/
     }
 
-    private void showQuestPopUp() {
-        MainActivity.player.addExperience(51);
+    private void showQuestPopUp(int title, int content) {
 
         //before inflating the custom alert dialog layout, we will get the current activity viewgroup
         ViewGroup viewGroup = getActivity().findViewById(android.R.id.content);
@@ -106,17 +103,11 @@ public class Flur extends Fragment {
         //then we will inflate the custom alert dialog xml that we created
         View dialogView = LayoutInflater.from(getActivity()).inflate(R.layout.popup_quest, viewGroup, false);
         TextView questName = dialogView.findViewById(R.id.quest_name);
-        questName.setText(R.string.quest_handwashing_title);
+        questName.setText(title);
         TextView questDescription = dialogView.findViewById(R.id.quest_description);
-        questDescription.setText(R.string.quest_handwashing_content);
+        questDescription.setText(content);
 
-        Button acceptQuest = dialogView.findViewById(R.id.start_quest_button);
-        acceptQuest.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                // TODO start the actual Quest
-            }
-        });
+
 
         //Now we need an AlertDialog.Builder object
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
@@ -125,15 +116,19 @@ public class Flur extends Fragment {
         builder.setView(dialogView);
 
         //finally creating the alert dialog and displaying it
-        AlertDialog alertDialog = builder.create();
+        final AlertDialog alertDialog = builder.create();
+
+        Button acceptQuest = dialogView.findViewById(R.id.start_quest_button);
+        acceptQuest.setText("Quest Beendet!");
+        acceptQuest.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                MainActivity.player.addExperience(handwashing.getExperience());
+                alertDialog.hide();
+            }
+        });
         alertDialog.show();
     }
-
-    private void TriggerObstWaschenQuest(){
-        System.out.println("Sie haben die Quest " + obstWaschen.getName() + " erfüllt!");
-        MainActivity.player.addExperience(obstWaschen.getExperience());
-    }
-
 
     /**
      * This interface must be implemented by activities that contain this
