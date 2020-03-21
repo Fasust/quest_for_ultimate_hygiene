@@ -1,13 +1,17 @@
 package com.questforultimatehygiene;
 
 import android.app.AlertDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.View;
 import android.view.WindowManager;
+import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -18,11 +22,14 @@ import com.questforultimatehygiene.model.OnExperienceGain;
 import com.questforultimatehygiene.model.OnLevelUp;
 import com.questforultimatehygiene.model.Player;
 
-public class MainActivity extends FragmentActivity {
+
+public class MainActivity extends FragmentActivity implements View.OnClickListener {
     static public Player player;
 
     public ViewPager viewPager;
     public ViewPagerAdapter viewPagerAdapter;
+    public ImageButton imageButton2;
+    public TextView textView2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +38,9 @@ public class MainActivity extends FragmentActivity {
         setContentView(R.layout.activity_main);
 
         viewPager = (ViewPager)findViewById(R.id.viewPager);
+        imageButton2 = (ImageButton)findViewById(R.id.imageButton2);
+        textView2 = (TextView)findViewById(R.id.textView2);
+        imageButton2.setOnClickListener(this);
         viewPager.setPageTransformer(true, new ZoomOutPageTransformer());
         setPagerAdapter();
 
@@ -94,4 +104,15 @@ public class MainActivity extends FragmentActivity {
         alertDialog.show();
     }
 
+    @Override
+    public void onClick(View view) {
+        String points = textView2.getText().toString();
+        Intent sendIntent = new Intent();
+        sendIntent.setAction(Intent.ACTION_SEND);
+        sendIntent.putExtra(Intent.EXTRA_TEXT, "Wow! Schon "+points+" Klopapierrollen bei 'Quest for Ultimate Hygiene'");
+        sendIntent.setType("text/plain");
+
+        Intent shareIntent = Intent.createChooser(sendIntent, null);
+        startActivity(shareIntent);
+    }
 }
