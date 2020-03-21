@@ -35,11 +35,11 @@ public class QuestList {
         int timeBetweenActions = 5; // in seconds
         int handwashingName = R.string.quest_handwashing_title;
         int handwashingDescription = R.string.quest_handwashing_content;
-        handwashing = new TimedQuest(handwashingName, handwashingDescription, 50, timeBetweenActions);
+        handwashing = new TimedQuest(handwashingName, handwashingDescription, 51, timeBetweenActions);
 
         int obstWaschenName = 0;
         int obstWaschenDescription = 0;
-        obstWaschen = new Quest(obstWaschenName, obstWaschenDescription, 100);
+        obstWaschen = new Quest(obstWaschenName, obstWaschenDescription, 101);
     }
 
     public Quest GetGeheInsBad(){
