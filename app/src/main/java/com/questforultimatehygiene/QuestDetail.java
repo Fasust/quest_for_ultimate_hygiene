@@ -7,7 +7,6 @@ import android.widget.ProgressBar;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.android.material.snackbar.Snackbar;
 import com.questforultimatehygiene.model.OnLevelUp;
 import com.questforultimatehygiene.model.Player;
 
