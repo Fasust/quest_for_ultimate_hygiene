@@ -1,19 +1,13 @@
 package com.questforultimatehygiene;
 
-import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentActivity;
 import androidx.viewpager.widget.ViewPager;
-import com.questforultimatehygiene.ViewPagerAdapter;
 
-import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.WindowManager;
-import android.widget.Button;
 
 public class MainActivity extends FragmentActivity {
 
