@@ -30,7 +30,6 @@ public class Flur extends Fragment {
 
     private String mParam1;
     private String mParam2;
-    private Quest geheInsBad;
     private Quest obstWaschen;
 
     private OnFragmentInteractionListener mListener;
@@ -70,7 +69,6 @@ public class Flur extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Save references to relevant quests within the Flur
-        geheInsBad = QuestList.getInstance().GetGeheInsBad();
         obstWaschen = QuestList.getInstance().GetObstWaschen();
 
         // Inflate the layout for this fragment
@@ -85,9 +83,16 @@ public class Flur extends Fragment {
         completeQuestButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                MainActivity.player.addExperience(50);
+                TriggerObstWaschenQuest();
             }
         });
+    }
+
+
+
+    private void TriggerObstWaschenQuest(){
+        System.out.println("Sie haben die Quest " + obstWaschen.getName() + " erfüllt!");
+        MainActivity.player.addExperience(obstWaschen.getExperience());
     }
 
 
