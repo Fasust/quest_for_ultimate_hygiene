@@ -63,6 +63,15 @@ public class TimedQuest extends Quest {
         }
     }
 
+    /**
+     * Call this method to start a task once in X seconds
+     * @param task = method with run() component that can be executed
+     */
+    public void startActivity(TimerTask task){
+        long delay = reminderTime * 1000; // Delay milliseconds
+        timer.schedule(task, delay);
+    }
+
     public void StopReminder() {
         stopReminder = true;
     }

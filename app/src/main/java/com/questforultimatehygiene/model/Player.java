@@ -18,6 +18,7 @@ public class Player {
 
     private int exp = 0; //Current exp. Starts at 0 every level
     private int level = 0; //Current level. Goes up when adding exp
+
     //How many total exp are needed to advance to the next level. Increases every level
     private int expNeededTillLevelUp = 100;
 

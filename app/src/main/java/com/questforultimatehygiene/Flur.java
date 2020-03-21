@@ -9,8 +9,8 @@ import android.widget.Button;
 
 import androidx.fragment.app.Fragment;
 
-import com.questforultimatehygiene.model.Quest;
 import com.questforultimatehygiene.model.QuestList;
+import com.questforultimatehygiene.model.TimedQuest;
 
 
 /**
@@ -29,7 +29,8 @@ public class Flur extends Fragment {
 
     private String mParam1;
     private String mParam2;
-    private Quest obstWaschen;
+    // TODO fix this, Obstwaschen oder Handwaschen im Flur ??
+    private TimedQuest handwashing;
 
     private OnFragmentInteractionListener mListener;
 
@@ -68,7 +69,8 @@ public class Flur extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Save references to relevant quests within the Flur
-        obstWaschen = QuestList.getInstance().GetObstWaschen();
+        // TODO fix this, Obstwaschen oder Handwaschen im Flur ??
+        handwashing = QuestList.getInstance().GetHandwashing();
 
         // Inflate the layout for this fragment
         return inflateFragmentLayout(inflater, container);
@@ -97,19 +99,7 @@ public class Flur extends Fragment {
 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState){
-/*        Button completeQuestButton =  getView().findViewById(R.id.quest_button_on_Home);
 
-        completeQuestButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                TriggerObstWaschenQuest();
-            }
-        });*/
-    }
-
-    private void TriggerObstWaschenQuest(){
-        System.out.println("Sie haben die Quest " + obstWaschen.getName() + " erfüllt!");
-        MainActivity.player.addExperience(obstWaschen.getExperience());
     }
 
 

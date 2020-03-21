@@ -10,7 +10,6 @@ import android.widget.ImageView;
 
 import androidx.fragment.app.Fragment;
 
-import com.questforultimatehygiene.model.Quest;
 import com.questforultimatehygiene.model.QuestList;
 import com.questforultimatehygiene.model.TimedQuest;
 
@@ -34,7 +33,6 @@ public class Bathroom extends Fragment implements View.OnClickListener {
     private String mParam2;
     private boolean solvedGeheInsBadQuestOnce = false; // To fix a bug
     private TimedQuest haendeWaschen;
-    private Quest geheInsBad;
 
     public ImageView imageView2;
 
@@ -76,11 +74,10 @@ public class Bathroom extends Fragment implements View.OnClickListener {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Save references to relevant quests within the Bathroom
-        haendeWaschen = QuestList.getInstance().GetHaendeWaschen();
-        geheInsBad = QuestList.getInstance().GetGeheInsBad();
+        haendeWaschen = QuestList.getInstance().GetHandwashing();
 
         // A popup will be displayed that shows Quest 1 when the App is started
-        TriggerGeheInsBadQuest();
+        //TriggerGeheInsBadQuest();
 
         // Inflate the layout for this fragment
         return inflateFragmentLayout(inflater, container);
@@ -117,15 +114,6 @@ public class Bathroom extends Fragment implements View.OnClickListener {
     @Override
     public void onClick(View view) {
 
-    }
-
-    private void TriggerGeheInsBadQuest(){
-        if(solvedGeheInsBadQuestOnce == true){
-            return;
-        }
-        solvedGeheInsBadQuestOnce = true;
-        System.out.println("Sie haben die Quest " + geheInsBad.getName() + " erfüllt!");
-        MainActivity.player.addExperience(geheInsBad.getExperience());
     }
 
     public interface OnFragmentInteractionListener {
