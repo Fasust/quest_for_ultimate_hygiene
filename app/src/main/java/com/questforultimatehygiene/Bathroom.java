@@ -1,15 +1,11 @@
 package com.questforultimatehygiene;
 
-import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 
 import androidx.fragment.app.Fragment;
@@ -87,14 +83,35 @@ public class Bathroom extends Fragment implements View.OnClickListener {
         TriggerGeheInsBadQuest();
 
         // Inflate the layout for this fragment
-
-        View view = inflater.inflate(R.layout.fragment_bathroom, container, false);
+        return inflateFragmentLayout(inflater, container);
+/*        View view = inflater.inflate(R.layout.fragment_bathroom, container, false);
         Button button3 = (Button) view.findViewById(R.id.button3);
         imageView2 = (ImageView) view.findViewById(R.id.imageView2);
         imageView2.setOnClickListener(this);
         imageView2.setVisibility(View.INVISIBLE);
         button3.setOnClickListener(this);
-        return view;
+        return view;*/
+    }
+
+    private View inflateFragmentLayout(LayoutInflater inflater, ViewGroup container) {
+        View bathroomView =  inflater.inflate(R.layout.fragment_bathroom, container, false);
+
+        Button startButton = bathroomView.findViewById(R.id.button_quest_bathroom);
+        setOnClickForStartQuestButton(startButton);
+        return bathroomView;
+    }
+
+    private void setOnClickForStartQuestButton(Button startButton) {
+        startButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                new PopUpHelper().showQuestPopUp(
+                        getActivity(),51, R.drawable.hand_wash_with_bottle,
+                        R.drawable.popup_background_roundedcorners_blue,
+                        R.id.quest_name, R.string.quest_handwashing_title,
+                        R.id.quest_description, R.string.quest_handwashing_content);
+            }
+        });
     }
 
     @Override

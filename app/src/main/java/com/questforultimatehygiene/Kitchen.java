@@ -1,18 +1,13 @@
 package com.questforultimatehygiene;
 
-import android.content.Context;
-import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+
+import androidx.fragment.app.Fragment;
 
 
 /**
@@ -67,13 +62,36 @@ public class Kitchen extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_kitchen, container, false);
+        return inflateFragmentLayout(inflater, container);
     }
 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
 
     }
+
+
+    private View inflateFragmentLayout(LayoutInflater inflater, ViewGroup container) {
+        View kitchenView = inflater.inflate(R.layout.fragment_kitchen, container, false);
+
+        Button startButton = kitchenView.findViewById(R.id.button_quest_kitchen);
+        setOnClickForStartQuestButton(startButton);
+        return kitchenView;
+    }
+
+    private void setOnClickForStartQuestButton(Button startButton) {
+        startButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                new PopUpHelper().showQuestPopUp(
+                        getActivity(), 51, R.drawable.sneezing,
+                        R.drawable.popup_background_roundedcorners_yellow,
+                        R.id.quest_name, R.string.quest_sneezing_title,
+                        R.id.quest_description, R.string.quest_sneezing_content);
+            }
+        });
+    }
+
 
     /**
      * This interface must be implemented by activities that contain this

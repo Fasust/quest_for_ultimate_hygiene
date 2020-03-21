@@ -18,7 +18,7 @@
             android:text="Badezimmer" />
 
         <Button
-            android:id="@+id/button3"
+            android:id="@+id/button_quest_bathroom"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Animation" />

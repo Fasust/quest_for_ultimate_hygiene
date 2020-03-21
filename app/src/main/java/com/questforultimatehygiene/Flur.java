@@ -1,13 +1,11 @@
 package com.questforultimatehygiene;
 
-import android.app.AlertDialog;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 
@@ -73,16 +71,28 @@ public class Flur extends Fragment {
         obstWaschen = QuestList.getInstance().GetObstWaschen();
 
         // Inflate the layout for this fragment
+        return inflateFragmentLayout(inflater, container);
+    }
+
+    private View inflateFragmentLayout(LayoutInflater inflater, ViewGroup container) {
         View frontdoorView =  inflater.inflate(R.layout.fragment_frontdoor, container, false);
 
         Button startButton = frontdoorView.findViewById(R.id.button_quest_frontdoor);
+        setOnClickForStartQuestButton(startButton);
+        return frontdoorView;
+    }
+
+    private void setOnClickForStartQuestButton(Button startButton) {
         startButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                showQuestPopUp();
+                new PopUpHelper().showQuestPopUp(
+                        getActivity(),29, R.drawable.shopping_bag,
+                        R.drawable.popup_background_roundedcorners_green,
+                        R.id.quest_name, R.string.quest_grocery_shopping_title,
+                        R.id.quest_description, R.string.quest_grocery_shopping_content);
             }
         });
-        return frontdoorView;
     }
 
     @Override
@@ -95,38 +105,6 @@ public class Flur extends Fragment {
                 TriggerObstWaschenQuest();
             }
         });*/
-    }
-
-    private void showQuestPopUp() {
-        MainActivity.player.addExperience(51);
-
-        //before inflating the custom alert dialog layout, we will get the current activity viewgroup
-        ViewGroup viewGroup = getActivity().findViewById(android.R.id.content);
-
-        //then we will inflate the custom alert dialog xml that we created
-        View dialogView = LayoutInflater.from(getActivity()).inflate(R.layout.popup_quest, viewGroup, false);
-        TextView questName = dialogView.findViewById(R.id.quest_name);
-        questName.setText(R.string.quest_handwashing_title);
-        TextView questDescription = dialogView.findViewById(R.id.quest_description);
-        questDescription.setText(R.string.quest_handwashing_content);
-
-        Button acceptQuest = dialogView.findViewById(R.id.start_quest_button);
-        acceptQuest.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                // TODO start the actual Quest
-            }
-        });
-
-        //Now we need an AlertDialog.Builder object
-        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-
-        //setting the view of the builder to our custom view that we already inflated
-        builder.setView(dialogView);
-
-        //finally creating the alert dialog and displaying it
-        AlertDialog alertDialog = builder.create();
-        alertDialog.show();
     }
 
     private void TriggerObstWaschenQuest(){

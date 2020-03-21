@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/popup_quest_layout"
-    android:orientation="vertical"
-    android:background="@drawable/popup_background_roundedcorners"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
+        android:id="@+id/popup_quest_layout"
+        android:orientation="vertical"
+        android:background="@drawable/popup_background_roundedcorners_blue"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
         <ImageView
-            android:id="@+id/imageView4"
+            android:id="@+id/quest_image"
             android:layout_marginTop="24dp"
             android:layout_width="wrap_content"
             android:layout_height="190dp"
@@ -47,6 +46,6 @@
         android:background="@drawable/button_background_roundedcorners"
         android:paddingStart="12dp"
         android:paddingEnd="12dp"
-        android:text="Quest starten" />
+        android:text="@string/start_quest" />
 
 </LinearLayout>
