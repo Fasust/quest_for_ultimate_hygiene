@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frameLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".Kitchen">
 
     <Button
@@ -10,5 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#E6EE9C"
-        android:text="Küche" />
-</FrameLayout>
+        android:text="Küche"
+        android:visibility="visible" />
+
+</LinearLayout>
