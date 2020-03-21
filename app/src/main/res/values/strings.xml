@@ -1,4 +1,11 @@
 <resources>
     <string name="app_name">Quest for Ultimate Hygiene</string>
     <string name="action_settings">Settings</string>
+
+    <!--  Quests  -->
+    <string name="quest_handwashing_title">Hände gründlich waschen!</string>
+    <string name="quest_handwashing_content">Unter fließendem Wasser\nMit Wasser und Seife\nMindestens 30 Sekunden\nUnter fließendem Wasser abwaschen\nMit sauberem Tuch abtrocknen</string>
+
+
+
 </resources>
