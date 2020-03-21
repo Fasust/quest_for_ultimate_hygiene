@@ -71,9 +71,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
             @Override
             public void onLevelUp(){
                 //Behaviour when leveling up
-                int currentLevel = Integer.parseInt( levelCounterView.getText().toString());
-                currentLevel++;
-                levelCounterView.setText( "" + currentLevel );
+                levelCounterView.setText( "" + player.getLevel());
                 showLevelUpPopUp();
             }
         }, new OnExperienceGain(){
