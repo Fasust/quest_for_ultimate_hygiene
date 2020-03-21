@@ -9,9 +9,11 @@ import com.questforultimatehygiene.R;
 public class QuestList {
     private static QuestList questList_instance = null;
 
-    private Quest geheInsBad;
+    int basicExperiencePoints = 51;
     private TimedQuest handwashing;
-    private Quest obstWaschen;
+    private Quest groceryShopping;
+    private Quest sneezing;
+    private  Quest welcomeHome;
 
     /**
      * Is called when the first instance of the QuestList is called
@@ -28,24 +30,31 @@ public class QuestList {
 
     private void InitiateQuestList(){
         // public Quest(String name, String description, int experience, String mediaPath){
-        int geheInsBadName = 0;
-        int geheInsBadDescription = 0;
+        /*
+        int geheInsBadName = R.string.hello_blank_fragment;
+        int geheInsBadDescription = R.string.hello_blank_fragment;
         geheInsBad = new Quest(geheInsBadName, geheInsBadDescription, 51);
-
-        int timeBetweenActions = 5; // in seconds
-        int handwashingName = R.string.quest_handwashing_title;
-        int handwashingDescription = R.string.quest_handwashing_content;
-        handwashing = new TimedQuest(handwashingName, handwashingDescription, 51, timeBetweenActions);
-
         int obstWaschenName = 0;
         int obstWaschenDescription = 0;
         obstWaschen = new Quest(obstWaschenName, obstWaschenDescription, 101);
-    }
+        */
+        int timeBetweenActions = 5; // in seconds
+        int handwashingTitle = R.string.quest_handwashing_title;
+        int handwashingContent = R.string.quest_handwashing_content;
+        handwashing = new TimedQuest(handwashingTitle, handwashingContent, basicExperiencePoints, timeBetweenActions);
 
-    public Quest GetGeheInsBad(){
-        if(questList_instance == null)
-            return null;
-        return geheInsBad;
+        int groceryShoppingTitle = R.string.quest_grocery_shopping_title;
+        int groceryShoppingContent = R.string.quest_grocery_shopping_content;
+        groceryShopping = new Quest(groceryShoppingTitle, groceryShoppingContent, basicExperiencePoints);
+
+        int sneezingTitle = R.string.quest_sneezing_title;
+        int sneezingContent = R.string.quest_sneezing_content;
+        sneezing = new Quest(sneezingTitle, sneezingContent, basicExperiencePoints);
+
+        int welcomeHomeTitle = R.string.quest_welcome_home_title;
+        int welcomeHomeContent = R.string.quest_welcome_home_content;
+        welcomeHome = new Quest(welcomeHomeTitle, welcomeHomeContent, basicExperiencePoints);
+
     }
 
     public TimedQuest GetHandwashing(){
@@ -54,10 +63,24 @@ public class QuestList {
         return handwashing;
     }
 
-    public Quest GetObstWaschen(){
+    public Quest GetSneezing(){
         if(questList_instance == null)
             return null;
-        return obstWaschen;
+        return sneezing;
     }
+
+    public Quest GetWelcomeHome(){
+        if(questList_instance == null)
+            return null;
+        return welcomeHome;
+    }
+
+
+    public Quest GetGroceryShopping(){
+        if(questList_instance == null)
+            return null;
+        return groceryShopping;
+    }
+
 
 }
