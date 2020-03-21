@@ -57,4 +57,12 @@ public class Quest {
     public int getExperience() {
         return experience;
     }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public String getName() {
+        return name;
+    }
 }
