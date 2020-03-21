@@ -15,14 +15,14 @@ public class TimedQuest extends Quest {
     private boolean stopReminder = false;
     private Timer timer;
 
-    public TimedQuest(String name, String description, int experience, int reminderTime) {
+    public TimedQuest(int name, int description, int experience, int reminderTime) {
         super(name, description, experience);
         this.reminderTime = reminderTime;
 
         timer = new Timer();
     }
 
-    public TimedQuest(String name, String description, int experience, String mediaPath, int reminderTime) {
+    public TimedQuest(int name, int description, int experience, String mediaPath, int reminderTime) {
         super(name, description, experience, mediaPath);
         this.reminderTime = reminderTime;
 

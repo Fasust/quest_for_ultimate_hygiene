@@ -2,25 +2,27 @@ package com.questforultimatehygiene.model;
 
 import android.net.Uri;
 
+import com.questforultimatehygiene.R;
+
 /**
  * This class can represent a diverse range of quests.
  * For example: Washing hands, Cleaning home, Open Windows, Do laundry
  * @author Oscheibe
  */
 public class Quest {
-    private String name;
-    private String description;
+    private int name;
+    private int description;
     private String mediaPath;
     private Uri mediaUri = null;
     private int experience;
 
-    public Quest(String name, String description, int experience){
+    public Quest(int name, int description, int experience){
         this.name = name;
         this.description = description;
         this.experience = experience;
     }
 
-    public Quest(String name, String description, int experience, String mediaPath){
+    public Quest(int name, int description, int experience, String mediaPath){
         this.name = name;
         this.description = description;
         this.experience = experience;
@@ -57,11 +59,11 @@ public class Quest {
         return experience;
     }
 
-    public String getDescription() {
+    public int getDescription() {
         return description;
     }
 
-    public String getName() {
+    public int getName() {
         return name;
     }
 }
