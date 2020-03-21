@@ -6,7 +6,11 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 
 import androidx.fragment.app.Fragment;
 
@@ -36,7 +40,7 @@ public class Bathroom extends Fragment implements View.OnClickListener {
     private TimedQuest haendeWaschen;
     private Quest geheInsBad;
 
-    public ImageButton imageButton;
+    public ImageView imageView2;
 
     private OnFragmentInteractionListener mListener;
 
@@ -85,20 +89,16 @@ public class Bathroom extends Fragment implements View.OnClickListener {
         // Inflate the layout for this fragment
 
         View view = inflater.inflate(R.layout.fragment_bathroom, container, false);
-        ImageButton imageButton = (ImageButton) view.findViewById(R.id.imageButton);
-        imageButton.setOnClickListener(this);
+        Button button3 = (Button) view.findViewById(R.id.button3);
+        imageView2 = (ImageView) view.findViewById(R.id.imageView2);
+        imageView2.setOnClickListener(this);
+        imageView2.setVisibility(View.INVISIBLE);
+        button3.setOnClickListener(this);
         return view;
     }
 
     @Override
     public void onClick(View view) {
-        Intent sendIntent = new Intent();
-        sendIntent.setAction(Intent.ACTION_SEND);
-        sendIntent.putExtra(Intent.EXTRA_TEXT, "Wow! Schon 20 Klopapierrollen bei 'Quest for Ultimate Hygiene'");
-        sendIntent.setType("text/plain");
-
-        Intent shareIntent = Intent.createChooser(sendIntent, null);
-        startActivity(shareIntent);
 
     }
 

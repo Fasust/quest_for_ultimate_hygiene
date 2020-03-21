@@ -98,6 +98,8 @@ public class Flur extends Fragment {
     }
 
     private void showQuestPopUp() {
+        MainActivity.player.addExperience(51);
+
         //before inflating the custom alert dialog layout, we will get the current activity viewgroup
         ViewGroup viewGroup = getActivity().findViewById(android.R.id.content);
 
