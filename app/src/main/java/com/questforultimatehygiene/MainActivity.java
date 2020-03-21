@@ -8,12 +8,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.ProgressBar;
-import android.widget.TextView;
 
 import androidx.fragment.app.FragmentActivity;
 import androidx.viewpager.widget.ViewPager;
@@ -39,13 +37,13 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
 
         viewPager = (ViewPager)findViewById(R.id.viewPager);
         imageButton2 = (ImageButton)findViewById(R.id.imageButton2);
-        textView2 = (TextView)findViewById(R.id.textView2);
+        final TextView levelCounterView =  (TextView)findViewById(R.id.level_counter_view);
         imageButton2.setOnClickListener(this);
         viewPager.setPageTransformer(true, new ZoomOutPageTransformer());
         setPagerAdapter();
 
         final ProgressBar expBar = findViewById(R.id.progressBar3);
-        final TextView levelCounterView = findViewById(R.id.level_counter);
+
 
         player = new Player(new OnLevelUp(){
             @Override
