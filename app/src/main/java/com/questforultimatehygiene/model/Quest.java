@@ -5,7 +5,7 @@ import java.lang.*;
 
 /**
  * This class can represent a diverse range of quests.
- * For example: Washing hands, Clean home, Open Windows, Do laundry
+ * For example: Washing hands, Cleaning home, Open Windows, Do laundry
  * @author Oscheibe
  */
 public class Quest {
@@ -13,16 +13,19 @@ public class Quest {
     private String description;
     private String mediaPath;
     private Uri mediaUri = null;
+    private int experience;
 
-    public Quest(String name, String description){
+    public Quest(String name, String description, int experience){
         this.name = name;
         this.description = description;
+        this.experience = experience;
     }
 
-    public Quest(String name, String description, String mediaPath){
+    public Quest(String name, String description, int experience, String mediaPath){
         this.name = name;
         this.description = description;
-        SetMediaPath(this.mediaPath);
+        this.experience = experience;
+        setMediaPath(this.mediaPath);
     }
 
     /**
@@ -30,7 +33,7 @@ public class Quest {
      * Example: "android.resource://packageName/VideoName.mp4
      * @param videoPath
      */
-    public void SetMediaPath(String videoPath) {
+    public void setMediaPath(String videoPath) {
         this.mediaPath = videoPath;
         mediaUri = Uri.parse(videoPath);
     }
@@ -39,7 +42,7 @@ public class Quest {
      * The Uri to the media related to the quest.
      * @return MediaUri or Uri.EMPTY
      */
-    public Uri GetMediaUri(){
+    public Uri getMediaUri(){
         if(mediaUri == null){
             return Uri.EMPTY;
         }
@@ -47,5 +50,11 @@ public class Quest {
             return mediaUri;
     }
 
+    public void setExperience(int experience) {
+        this.experience = experience;
+    }
 
+    public int getExperience() {
+        return experience;
+    }
 }
