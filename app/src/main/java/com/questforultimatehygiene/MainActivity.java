@@ -1,8 +1,12 @@
 package com.questforultimatehygiene;
 
+import android.app.AlertDialog;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -39,6 +43,7 @@ public class MainActivity extends FragmentActivity {
                 int currentLevel = Integer.parseInt( levelCounterView.getText().toString());
                 currentLevel++;
                 levelCounterView.setText( "" + currentLevel );
+                showLevelUpPopUp();
             }
         }, new OnExperienceGain(){
             @Override
@@ -74,6 +79,19 @@ public class MainActivity extends FragmentActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    private void showLevelUpPopUp() {
+        ViewGroup viewGroup = findViewById(android.R.id.content);
+
+        View dialogView = LayoutInflater.from(this).inflate(R.layout.popup_level_up, viewGroup, false);
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+        builder.setView(dialogView);
+
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
     }
 
 }
