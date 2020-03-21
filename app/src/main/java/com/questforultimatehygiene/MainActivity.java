@@ -9,6 +9,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.WindowManager;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import com.questforultimatehygiene.model.OnExperienceGain;
 import com.questforultimatehygiene.model.OnLevelUp;
@@ -31,11 +32,14 @@ public class MainActivity extends FragmentActivity {
         setPagerAdapter();
 
         final ProgressBar expBar = findViewById(R.id.progressBar3);
+        final TextView levelCounterView = findViewById(R.id.level_counter);
 
         player = new Player(new OnLevelUp(){
             @Override
             public void onLevelUp(){
-
+                int currentLevel = Integer.parseInt( levelCounterView.getText().toString());
+                currentLevel++;
+                levelCounterView.setText( "" + currentLevel );
             }
         }, new OnExperienceGain(){
             @Override

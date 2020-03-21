@@ -11,7 +11,7 @@
         android:layout_height="match_parent">
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/level_counter"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="#80DEEA"
