@@ -1,7 +1,6 @@
 package com.questforultimatehygiene.model;
-import android.net.Uri;
 
-import java.lang.*;
+import android.net.Uri;
 
 /**
  * This class can represent a diverse range of quests.
@@ -56,5 +55,13 @@ public class Quest {
 
     public int getExperience() {
         return experience;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public String getName() {
+        return name;
     }
 }
