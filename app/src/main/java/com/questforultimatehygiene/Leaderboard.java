@@ -5,15 +5,25 @@ import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.questforultimatehygiene.model.Friends;
+
+import java.util.ArrayList;
+
 public class Leaderboard extends Activity {
-    private String[] users = { "Suresh Dasari", "Rohini Alavala", "Trishika Dasari", "Praveen Alavala", "Madav Sai", "Hamsika Yemineni"};
+    private ArrayList<Friends> friends = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_leaderboard);
+
+        friends.add(new Friends("Bernt Bauer", "Cleanliness Wizard", 256, R.drawable.boy));
+        friends.add(new Friends("Lea Bascha", "Major Moping", 100, R.drawable.woman_1));
+        friends.add(new Friends("Hans Peter", "Mr. Propper", 23, R.drawable.boy_2));
+        friends.add(new Friends("Marius Hausmann", "Putz Profi", 12, R.drawable.boy_3));
+        friends.add(new Friends("Mariane Hausmann", "Sauberkeits Novize", 2, R.drawable.woman_2));
+
         ListView friendList = findViewById(R.id.friend_list_view);
-        ArrayAdapter friendAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, users);
-        friendList.setAdapter(friendAdapter);
+        friendList.setAdapter(new FriendListAdapter(this, friends));
     }
 }
