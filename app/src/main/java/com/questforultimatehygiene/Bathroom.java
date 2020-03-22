@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -81,7 +83,12 @@ public class Bathroom extends Fragment  {
         //TriggerGeheInsBadQuest();
 
         // Inflate the layout for this fragment
-        return inflateFragmentLayout(inflater, container);
+        View view = inflateFragmentLayout(inflater, container);
+        ImageButton button_quest_bathroom = (ImageButton)view.findViewById(R.id.button_quest_bathroom);
+        Animation animation = AnimationUtils.loadAnimation(getContext(), R.anim.lefttoright);
+        button_quest_bathroom.startAnimation(animation);
+        return view;
+
 /*      View view = inflater.inflate(R.layout.fragment_bathroom, container, false);
 
         imageView2 = (ImageView) view.findViewById(R.id.imageView2);

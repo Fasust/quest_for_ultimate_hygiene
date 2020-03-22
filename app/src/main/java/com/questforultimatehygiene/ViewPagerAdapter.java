@@ -20,8 +20,10 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
             case 2:
                 return new Bathroom();
             case 3:
-                return new Library();
+                return new Bus();
             case 4:
+                return new Library();
+            case 5:
                 return new WLanSettingScreen();
             default:
                 return null;
@@ -30,6 +32,6 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public int getCount() {
-        return 5;
+        return 6;
     }
 }
