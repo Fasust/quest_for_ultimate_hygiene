@@ -47,6 +47,6 @@
         android:id="@+id/btnLib7"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:text="BZgA AUfklärungsvideos" />
+        android:text="BZgA Aufklärungsvideos" />
 
 </LinearLayout>
