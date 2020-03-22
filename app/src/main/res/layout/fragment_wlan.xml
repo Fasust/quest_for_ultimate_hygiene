@@ -5,21 +5,22 @@
     android:orientation="vertical">
 
     <TextView
-        android:paddingTop="20dp"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_gravity="center"
-        android:text="wähle dein Heim WLAN:"
-        android:textSize="30sp"
-        />
+        android:paddingTop="20dp"
+        android:text="Wähle dein Heim WLAN"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:textSize="30sp" />
 
     <ListView
         android:id="@+id/simpleListView"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:choiceMode="singleChoice"
-        android:listSelector="@android:color/holo_green_dark"
         android:footerDividersEnabled="false"
-        android:layout_marginTop="20dp"/>
+        android:listSelector="@color/colorLightBlueBackground" />
 
 </LinearLayout>
