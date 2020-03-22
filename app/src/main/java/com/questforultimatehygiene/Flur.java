@@ -72,7 +72,7 @@ public class Flur extends Fragment {
         // Inflate the layout for this fragment
         View view = inflateFragmentLayout(inflater, container);
         Button button_quest_flur = (Button)view.findViewById(R.id.button_quest_flur);
-        Animation animation = AnimationUtils.loadAnimation(getContext(), R.anim.lefttoright);
+        Animation animation = AnimationUtils.loadAnimation(getContext(), R.anim.bounce);
         button_quest_flur.startAnimation(animation);
         return view;
     }
