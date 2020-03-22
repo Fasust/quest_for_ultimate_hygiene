@@ -8,12 +8,13 @@
     tools:context=".MainActivity"
     tools:showIn="@layout/activity_main">
 
-    <ImageView
-        android:id="@+id/imageView"
+    <ImageButton
+        android:id="@+id/points_image_button"
         android:layout_width="37dp"
         android:layout_height="36dp"
         android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
+        android:background="#00FFFFFF"
+        android:scaleType="centerInside"
         android:src="@drawable/clean"
         app:layout_constraintBottom_toTopOf="@+id/viewPager"
         app:layout_constraintStart_toStartOf="parent"
@@ -33,7 +34,7 @@
         android:progress="25"
         android:progressTint="#00BCD4"
         app:layout_constraintEnd_toStartOf="@+id/level_counter_view"
-        app:layout_constraintStart_toEndOf="@+id/imageView"
+        app:layout_constraintStart_toEndOf="@+id/points_image_button"
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.viewpager.widget.ViewPager
@@ -45,7 +46,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/exp_bar">
+        app:layout_constraintTop_toBottomOf="@+id/exp_bar"
+        app:layout_constraintVertical_bias="0.0">
 
     </androidx.viewpager.widget.ViewPager>
 

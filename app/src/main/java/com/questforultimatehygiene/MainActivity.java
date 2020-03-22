@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -34,6 +35,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         super.onCreate(savedInstanceState);
 
         setUpPagerAdapter();
+        setUpLeaderBoardButton();
         setUpShareButton();
         setUpExpDisplay();
     }
@@ -49,6 +51,17 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
     private void setUpShareButton(){
         final ImageButton shareButton = findViewById(R.id.share_button);
         shareButton.setOnClickListener(this);
+    }
+
+    private void setUpLeaderBoardButton(){
+        final ImageView pointView = findViewById(R.id.points_image_button);
+        pointView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent myIntent = new Intent(MainActivity.this, Leaderboard.class);
+                MainActivity.this.startActivity(myIntent);
+            }
+        });
     }
 
     public void onClick(View view) {
