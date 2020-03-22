@@ -47,6 +47,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
     private void setUpPagerAdapter(){
         setContentView(R.layout.activity_main);
         viewPager = findViewById(R.id.viewPager);
+        viewPager.setCurrentItem(0);
         viewPager.setPageTransformer(true, new ZoomOutPageTransformer());
         viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager());
         viewPager.setAdapter(viewPagerAdapter);

@@ -1,6 +1,7 @@
 package com.questforultimatehygiene;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,6 +11,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
+import androidx.viewpager.widget.ViewPager;
 
 public class WLanSettingScreen extends Fragment {
 
@@ -31,6 +33,8 @@ public class WLanSettingScreen extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Toast.makeText(WLanSettingScreen.this.getContext(),"WLAN gesetzt: " + wLanList[position],Toast.LENGTH_LONG).show();
+                Intent explicitIntent = new Intent(getActivity(), MainActivity.class);
+                startActivity(explicitIntent);
             }
         });
 

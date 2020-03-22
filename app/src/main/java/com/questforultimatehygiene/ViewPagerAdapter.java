@@ -26,7 +26,7 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
             case 5:
                 return new WLanSettingScreen();
             default:
-                return null;
+                return new Flur();
         }
     }
 
