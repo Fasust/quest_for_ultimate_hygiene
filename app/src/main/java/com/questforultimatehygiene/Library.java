@@ -73,12 +73,14 @@ public class Library extends Fragment implements View.OnClickListener {
         Button btnLib4 = (Button)view.findViewById(R.id.btnLib4);
         Button btnLib5 = (Button)view.findViewById(R.id.btnLib5);
         Button btnLib6 = (Button)view.findViewById(R.id.btnLib6);
+        Button btnLib7 = (Button)view.findViewById(R.id.btnLib7);
         btnLib1.setOnClickListener(this);
         btnLib2.setOnClickListener(this);
         btnLib3.setOnClickListener(this);
         btnLib4.setOnClickListener(this);
         btnLib5.setOnClickListener(this);
         btnLib6.setOnClickListener(this);
+        btnLib7.setOnClickListener(this);
         return view;
     }
 
@@ -120,6 +122,12 @@ public class Library extends Fragment implements View.OnClickListener {
                 Intent i6 = new Intent(Intent.ACTION_VIEW);
                 i6.setData(Uri.parse(url6));
                 startActivity(i6);
+                break;
+            case R.id.btnLib7:
+                String url7 = "https://www.youtube.com/playlist?list=PLRsi8mtTLFAyJaujkSHyH9NqZbgm3fcvy";
+                Intent i7 = new Intent(Intent.ACTION_VIEW);
+                i7.setData(Uri.parse(url7));
+                startActivity(i7);
                 break;
         }
     }
