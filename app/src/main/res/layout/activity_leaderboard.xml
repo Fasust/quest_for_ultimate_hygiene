@@ -20,17 +20,17 @@
             app:layout_constraintTop_toBottomOf="@+id/tabLayout" />
 
         <ProgressBar
-            android:id="@+id/exp_bar3"
+            android:id="@+id/friend_progress_bar"
             style="?android:attr/progressBarStyleHorizontal"
             android:layout_width="0dp"
             android:layout_height="16dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="24dp"
-            android:layout_marginEnd="8dp"
+            android:layout_marginEnd="16dp"
             android:indeterminate="false"
             android:progress="25"
             android:progressTint="#00BCD4"
-            app:layout_constraintEnd_toStartOf="@+id/level_counter_view3"
+            app:layout_constraintEnd_toStartOf="@+id/level_counter_on_friend_page"
             app:layout_constraintStart_toEndOf="@+id/imageView4"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -46,7 +46,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/level_counter_view3"
+            android:id="@+id/level_counter_on_friend_page"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
@@ -67,18 +67,18 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Display1"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/exp_bar3" />
+            app:layout_constraintTop_toBottomOf="@+id/friend_progress_bar" />
 
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/tabLayout"
-            app:tabInlineLabel="true"
             android:layout_width="409dp"
             android:layout_height="0dp"
             android:layout_marginTop="24dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView"
-            app:tabIndicatorColor="#00BCD4">
+            app:tabIndicatorColor="#00BCD4"
+            app:tabInlineLabel="true">
 
             <com.google.android.material.tabs.TabItem
                 android:layout_width="wrap_content"

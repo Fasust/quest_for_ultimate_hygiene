@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import com.questforultimatehygiene.model.Friends;
 
@@ -25,5 +27,14 @@ public class Leaderboard extends Activity {
 
         ListView friendList = findViewById(R.id.friend_list_view);
         friendList.setAdapter(new FriendListAdapter(this, friends));
+
+
+
+        TextView levelCounterView = findViewById(R.id.level_counter_on_friend_page);
+        levelCounterView.setText(getIntent().getIntExtra(MainActivity.LEVEL_INTENT_ID, 0) + "");
+
+        ProgressBar expBar = findViewById(R.id.friend_progress_bar);
+        expBar.setProgress(getIntent().getIntExtra(MainActivity.EXP_INTENT_ID, 0));
+        expBar.setMax(getIntent().getIntExtra(MainActivity.EXP_NEEDED_INTENT_ID, 100));
     }
 }
