@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 
 import androidx.fragment.app.Fragment;
@@ -94,12 +95,12 @@ public class Bathroom extends Fragment  {
     private View inflateFragmentLayout(LayoutInflater inflater, ViewGroup container) {
         View bathroomView =  inflater.inflate(R.layout.fragment_bathroom, container, false);
 
-        Button startButton = bathroomView.findViewById(R.id.button_quest_bathroom);
+        ImageButton startButton = bathroomView.findViewById(R.id.button_quest_bathroom);
         setOnClickForStartQuestButton(startButton);
         return bathroomView;
     }
 
-    private void setOnClickForStartQuestButton(Button startButton) {
+    private void setOnClickForStartQuestButton(ImageButton startButton) {
         startButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
