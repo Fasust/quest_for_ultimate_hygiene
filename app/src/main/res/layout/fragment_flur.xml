@@ -9,7 +9,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@mipmap/flur">
+        android:background="@drawable/flur_no_mantel">
 
         <Button
             android:id="@+id/button_quest_flur"
@@ -26,13 +26,14 @@
 
         <Button
             android:id="@+id/button_quest_home"
-            android:layout_width="110dp"
-            android:layout_height="124dp"
-            android:layout_marginStart="40dp"
-            android:layout_marginBottom="156dp"
-            android:background="@drawable/hand_wash"
+            android:layout_width="102dp"
+            android:layout_height="262dp"
+            android:layout_marginStart="16dp"
+            android:background="@drawable/mantel_on_hanger"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.381" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>
