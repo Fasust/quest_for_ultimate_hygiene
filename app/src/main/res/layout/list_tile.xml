@@ -18,8 +18,8 @@
 
         <ImageView
             android:id="@+id/imageView51"
-            android:layout_width="37dp"
-            android:layout_height="36dp"
+            android:layout_width="26dp"
+            android:layout_height="26dp"
             android:layout_marginEnd="8dp"
             android:src="@drawable/clean"
             android:tint="#5F5F5F"
@@ -33,7 +33,7 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"
             android:text="156"
-            android:textSize="24sp"
+            android:textSize="18sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -41,15 +41,15 @@
 
         <ImageView
             android:id="@+id/friend_avatar"
-            tools:src="@tools:sample/avatars"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@tools:sample/avatars" />
 
         <TextView
             android:id="@+id/friend_title"
