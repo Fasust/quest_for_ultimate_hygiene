@@ -16,7 +16,6 @@
             android:layout_width="206dp"
             android:layout_height="213dp"
             android:background="@drawable/einkaufstuete"
-            android:backgroundTint="#E91A1A"
             android:backgroundTintMode="multiply"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
