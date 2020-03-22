@@ -89,7 +89,7 @@ public class Flur extends Fragment {
             @Override
             public void onClick(View view) {
                 new PopUpHelper().showQuestPopUp(
-                        getActivity(),29, R.drawable.shopping_bag_nolines,
+                        getActivity(),29, R.drawable.shopping_bag,
                         R.drawable.popup_background_roundedcorners_green,
                         R.id.quest_name, R.string.quest_grocery_shopping_title,
                         R.id.quest_description, R.string.quest_grocery_shopping_content);
