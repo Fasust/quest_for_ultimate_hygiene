@@ -2,6 +2,7 @@ package com.questforultimatehygiene;
 
 import android.app.AlertDialog;
 import android.content.Context;
+import android.media.MediaPlayer;
 import android.os.CountDownTimer;
 import android.os.Vibrator;
 import android.view.LayoutInflater;
@@ -57,6 +58,7 @@ public class PopUpHelper {
                     timer_textView.setVisibility(View.VISIBLE);
                     progressBar.setVisibility(View.VISIBLE);
                     startCountdownTimer(timer_textView, context, progressBar);
+                    startSong(context);
                 }
             }
         });
@@ -99,5 +101,16 @@ public class PopUpHelper {
 
             }
         }.start();
+    }
+
+    private void startSong( final Context context ){
+        final MediaPlayer player = MediaPlayer.create(context, R.raw.elevator);
+        player.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+            @Override
+            public void onCompletion(MediaPlayer mp) {
+                player.release();
+            }
+        });
+        player.start();
     }
 }
