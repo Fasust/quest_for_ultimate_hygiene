@@ -6,7 +6,7 @@
     <string name="quest_handwashing_title">Hände gründlich waschen!</string>
     <string name="quest_handwashing_content">Unter fließendem Wasser\nMit Wasser und Seife\nMindestens 30 Sekunden\nUnter fließendem Wasser abwaschen\nMit sauberem Tuch abtrocknen</string>
     <string name="quest_grocery_shopping_title">Obst und Gemüse</string>
-    <string name="quest_grocery_shopping_content">Den Einkauf gleich einräumen.\nObst und Gemüse trocken und sauber lagern.\nFrisch schmeckt am besten!\nVorher ordentlich waschen!</string>
+    <string name="quest_grocery_shopping_content">Obst kann Viren tragen.\nVor Verzehr gründlich waschen.\nGemüse gut reinigen und kochen.\nKühl, trocken und sauber lagern.</string>
     <string name="quest_sneezing_title">Ich muss niesen!</string>
     <string name="quest_sneezing_content">Von anderen wegdrehen.\nTaschentuch verwenden.\nOder in die Armbeuge niesen.</string>
     <string name="quest_welcome_home_title">Willkommen zuhause!</string>

@@ -9,9 +9,6 @@ import android.widget.Button;
 
 import androidx.fragment.app.Fragment;
 
-import com.questforultimatehygiene.model.QuestList;
-import com.questforultimatehygiene.model.TimedQuest;
-
 
 /**
  * A simple {@link Fragment} subclass.
@@ -29,8 +26,6 @@ public class Flur extends Fragment {
 
     private String mParam1;
     private String mParam2;
-    // TODO fix this, Obstwaschen oder Handwaschen im Flur ??
-    private TimedQuest handwashing;
 
     private OnFragmentInteractionListener mListener;
 
@@ -44,7 +39,7 @@ public class Flur extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment Frontdoor.
+     * @return A new instance of fragment Flur.
      */
 
     public static Flur newInstance(String param1, String param2) {
@@ -69,19 +64,20 @@ public class Flur extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Save references to relevant quests within the Flur
-        // TODO fix this, Obstwaschen oder Handwaschen im Flur ??
-        handwashing = QuestList.getInstance().GetHandwashing();
 
         // Inflate the layout for this fragment
         return inflateFragmentLayout(inflater, container);
     }
 
     private View inflateFragmentLayout(LayoutInflater inflater, ViewGroup container) {
-        View frontdoorView =  inflater.inflate(R.layout.fragment_frontdoor, container, false);
+        View flurView =  inflater.inflate(R.layout.fragment_flur, container, false);
 
-        Button startButton = frontdoorView.findViewById(R.id.button_quest_frontdoor);
+        Button startButton = flurView.findViewById(R.id.button_quest_flur);
         setOnClickForStartQuestButton(startButton);
-        return frontdoorView;
+
+        Button welcomeHomeButton = flurView.findViewById(R.id.button_quest_home);
+        setOnClickForWelcomeHomeButton(welcomeHomeButton);
+        return flurView;
     }
 
     private void setOnClickForStartQuestButton(Button startButton) {
@@ -89,14 +85,30 @@ public class Flur extends Fragment {
             @Override
             public void onClick(View view) {
                 new PopUpHelper().showQuestPopUp(
-                        getActivity(),29, R.drawable.shopping_bag_nolines,
+                        getActivity(),29, R.drawable.shopping_bag,
                         R.drawable.popup_background_roundedcorners_green,
+                        R.drawable.button_background_roundedcorners_orange,
+//                        R.style.Colored_Button_Orange,
                         R.id.quest_name, R.string.quest_grocery_shopping_title,
                         R.id.quest_description, R.string.quest_grocery_shopping_content);
             }
         });
     }
 
+    private void setOnClickForWelcomeHomeButton(Button welcomeHomeButton) {
+        welcomeHomeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                new PopUpHelper().showQuestPopUp(
+                        getActivity(),29, R.drawable.doormat,
+                        R.drawable.popup_background_roundedcorners_beige,
+                        R.drawable.button_background_roundedcorners_brown,
+//                        R.style.Colored_Button_Orange,
+                        R.id.quest_name, R.string.quest_welcome_home_title,
+                        R.id.quest_description, R.string.quest_welcome_home_content);
+            }
+        });
+    }
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState){
 

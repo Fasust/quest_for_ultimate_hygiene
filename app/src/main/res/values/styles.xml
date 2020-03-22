@@ -29,4 +29,16 @@
         <item name="android:background">@color/black_overlay</item>
     </style>
 
+    <style name="Colored_Button_Blue" parent="AppTheme">
+        <item name="colorAccent">@color/colorDarkBlueButton</item>
+    </style>
+
+    <style name="Colored_Button_LightBlue" parent="AppTheme">
+        <item name="colorAccent">@color/colorLightBlueButton</item>
+    </style>
+
+    <style name="Colored_Button_Orange" parent="AppTheme">
+        <item name="colorAccent">@color/colorOrangeButton</item>
+    </style>
+
 </resources>

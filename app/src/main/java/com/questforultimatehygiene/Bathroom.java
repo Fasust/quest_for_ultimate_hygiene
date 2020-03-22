@@ -24,7 +24,7 @@ import java.util.TimerTask;
  * Use the {@link Bathroom#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class Bathroom extends Fragment implements View.OnClickListener {
+public class Bathroom extends Fragment  {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
@@ -106,15 +106,14 @@ public class Bathroom extends Fragment implements View.OnClickListener {
                 new PopUpHelper().showQuestPopUp(
                         getActivity(),51, R.drawable.hand_wash_with_bottle,
                         R.drawable.popup_background_roundedcorners_blue,
+                        R.drawable.button_background_roundedcorners_lightblue,
+//                        R.style.Colored_Button_LightBlue,
                         R.id.quest_name, R.string.quest_handwashing_title,
                         R.id.quest_description, R.string.quest_handwashing_content);
             }
         });
     }
-    @Override
-    public void onClick(View view) {
 
-    }
 
     public interface OnFragmentInteractionListener {
         void onFragmentInteraction(Uri uri);

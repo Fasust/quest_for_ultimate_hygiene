@@ -1,9 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="colorPrimary">#008577</color>
-    <color name="colorBroccoli">#4eba0f</color>
+    <color name="colorBroccoli">#9fdfaf</color>
+    <color name="colorOrangeButton">#ff8000</color>
     <color name="colorYellowish">#ccffcc</color>
-    <color name="colorBeige">#E8E8E8</color>
+    <color name="colorBeige">#fff7e6</color>
+    <color name="colorDarkBlueButton">#4d4dff</color>
+    <color name="colorLightBlueButton">#00aaff</color>
+    <color name="colorLightBlueBackground">#80d4ff</color>
+    <color name="colorLightBrownButton">#CC8800</color>
+    <color name="colorDarkBrownButton">#805500</color>
+
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
 
