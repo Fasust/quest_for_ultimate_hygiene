@@ -74,6 +74,9 @@ public class Flur extends Fragment {
 
         Button startButton = flurView.findViewById(R.id.button_quest_flur);
         setOnClickForStartQuestButton(startButton);
+
+        Button welcomeHomeButton = flurView.findViewById(R.id.button_quest_home);
+        setOnClickForWelcomeHomeButton(welcomeHomeButton);
         return flurView;
     }
 
@@ -92,6 +95,20 @@ public class Flur extends Fragment {
         });
     }
 
+    private void setOnClickForWelcomeHomeButton(Button welcomeHomeButton) {
+        welcomeHomeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                new PopUpHelper().showQuestPopUp(
+                        getActivity(),29, R.drawable.doormat,
+                        R.drawable.popup_background_roundedcorners_beige,
+                        R.drawable.button_background_roundedcorners_brown,
+//                        R.style.Colored_Button_Orange,
+                        R.id.quest_name, R.string.quest_welcome_home_title,
+                        R.id.quest_description, R.string.quest_welcome_home_content);
+            }
+        });
+    }
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState){
 
