@@ -20,14 +20,14 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
             case 2:
                 return new Kitchen();
             case 3:
-                return new Bus();
-            case 4:
                 return new Library();
-            case 5:
+            case 4:
                 return new WLanSettingScreen();
             default:
                 return new Flur();
         }
+
+        //TODO: complete Bus fragment implementation
     }
 
     @Override
