@@ -1,8 +1,6 @@
 package com.questforultimatehygiene;
 
 import android.app.AlertDialog;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,7 +14,7 @@ import androidx.fragment.app.FragmentActivity;
 public class PopUpHelper {
 
 
-    public void showQuestPopUp(FragmentActivity context, int exp, int questIcon, int background, int questTitleId, int questTitle, int questContentId, int questContent) {
+    public void showQuestPopUp(FragmentActivity context, int exp, int questIcon, int background, int buttonBackground, int questTitleId, int questTitle, int questContentId, int questContent) {
         MainActivity.player.addExperience(exp);
 
         // get the current activity viewgroup
@@ -38,6 +36,7 @@ public class PopUpHelper {
         questImage.setImageDrawable(context.getResources().getDrawable(questIcon));
 
         Button startQuest = dialogView.findViewById(R.id.start_quest_button);
+        startQuest.setBackgroundResource(buttonBackground);
         startQuest.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

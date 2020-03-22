@@ -106,6 +106,8 @@ public class Bathroom extends Fragment implements View.OnClickListener {
                 new PopUpHelper().showQuestPopUp(
                         getActivity(),51, R.drawable.hand_wash_with_bottle,
                         R.drawable.popup_background_roundedcorners_blue,
+                        R.drawable.button_background_roundedcorners_lightblue,
+//                        R.style.Colored_Button_LightBlue,
                         R.id.quest_name, R.string.quest_handwashing_title,
                         R.id.quest_description, R.string.quest_handwashing_content);
             }

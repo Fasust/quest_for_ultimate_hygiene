@@ -9,9 +9,6 @@ import android.widget.Button;
 
 import androidx.fragment.app.Fragment;
 
-import com.questforultimatehygiene.model.QuestList;
-import com.questforultimatehygiene.model.TimedQuest;
-
 
 /**
  * A simple {@link Fragment} subclass.
@@ -29,7 +26,6 @@ public class Flur extends Fragment {
 
     private String mParam1;
     private String mParam2;
-    // TODO fix this, Obstwaschen oder Handwaschen im Flur ??
 
     private OnFragmentInteractionListener mListener;
 
@@ -88,6 +84,8 @@ public class Flur extends Fragment {
                 new PopUpHelper().showQuestPopUp(
                         getActivity(),29, R.drawable.shopping_bag,
                         R.drawable.popup_background_roundedcorners_green,
+                        R.drawable.button_background_roundedcorners_orange,
+//                        R.style.Colored_Button_Orange,
                         R.id.quest_name, R.string.quest_grocery_shopping_title,
                         R.id.quest_description, R.string.quest_grocery_shopping_content);
             }

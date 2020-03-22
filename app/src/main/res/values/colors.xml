@@ -5,7 +5,9 @@
     <color name="colorOrangeButton">#ff8000</color>
     <color name="colorYellowish">#ccffcc</color>
     <color name="colorBeige">#fff7e6</color>
-    <color name="colorBlueButton">#4d4dff</color>
+    <color name="colorDarkBlueButton">#4d4dff</color>
+    <color name="colorLightBlueButton">#00aaff</color>
+    <color name="colorLightBlueBackground">#80d4ff</color>
 
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>

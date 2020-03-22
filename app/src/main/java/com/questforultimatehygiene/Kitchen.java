@@ -86,6 +86,8 @@ public class Kitchen extends Fragment {
                 new PopUpHelper().showQuestPopUp(
                         getActivity(), 51, R.drawable.sneezing,
                         R.drawable.popup_background_roundedcorners_yellow,
+                        R.drawable.button_background_roundedcorners_darkblue,
+//                        R.style.Colored_Button_Blue,
                         R.id.quest_name, R.string.quest_sneezing_title,
                         R.id.quest_description, R.string.quest_sneezing_content);
             }
