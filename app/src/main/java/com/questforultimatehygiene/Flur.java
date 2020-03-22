@@ -30,7 +30,6 @@ public class Flur extends Fragment {
     private String mParam1;
     private String mParam2;
     // TODO fix this, Obstwaschen oder Handwaschen im Flur ??
-    private TimedQuest handwashing;
 
     private OnFragmentInteractionListener mListener;
 
@@ -69,8 +68,6 @@ public class Flur extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Save references to relevant quests within the Flur
-        // TODO fix this, Obstwaschen oder Handwaschen im Flur ??
-        handwashing = QuestList.getInstance().GetHandwashing();
 
         // Inflate the layout for this fragment
         return inflateFragmentLayout(inflater, container);
@@ -89,7 +86,7 @@ public class Flur extends Fragment {
             @Override
             public void onClick(View view) {
                 new PopUpHelper().showQuestPopUp(
-                        getActivity(),29, R.drawable.shopping_bag_nolines,
+                        getActivity(),29, R.drawable.shopping_bag,
                         R.drawable.popup_background_roundedcorners_green,
                         R.id.quest_name, R.string.quest_grocery_shopping_title,
                         R.id.quest_description, R.string.quest_grocery_shopping_content);

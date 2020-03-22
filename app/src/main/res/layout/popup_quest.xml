@@ -15,13 +15,13 @@
             android:src="@drawable/hand_wash_with_bottle"/>
 
         <TextView
-        android:id="@+id/quest_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="14dp"
+            android:id="@+id/quest_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
             android:layout_marginStart="10dp"
             android:layout_marginLeft="10dp"
-        android:text="Quest Name"
+            android:text="Quest Name"
             android:layout_gravity="center_horizontal"
             android:gravity="center_horizontal"
             android:textSize="24sp"/>

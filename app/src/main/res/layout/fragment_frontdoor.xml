@@ -13,8 +13,8 @@
 
         <Button
             android:id="@+id/button_quest_frontdoor"
-            android:layout_width="145dp"
-            android:layout_height="169dp"
+            android:layout_width="110dp"
+            android:layout_height="124dp"
             android:background="@drawable/shopping_bag"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
