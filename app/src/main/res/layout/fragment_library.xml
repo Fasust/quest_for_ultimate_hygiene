@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#EF9A9A"
+    android:background="@mipmap/regal"
     android:orientation="vertical"
     tools:context=".Library">
 
@@ -11,42 +11,70 @@
         android:id="@+id/btnLib1"
         android:layout_width="match_parent"
         android:layout_height="50dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginRight="16dp"
+        android:backgroundTint="#FFFFFF"
         android:text="Hygienetipps" />
 
     <Button
         android:id="@+id/btnLib2"
         android:layout_width="match_parent"
         android:layout_height="50dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginRight="16dp"
+        android:backgroundTint="#FFFFFF"
         android:text="Allgemeine Infos" />
 
     <Button
         android:id="@+id/btnLib3"
         android:layout_width="match_parent"
         android:layout_height="50dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginRight="16dp"
+        android:backgroundTint="#FFFFFF"
         android:text="Händewaschen" />
 
     <Button
         android:id="@+id/btnLib4"
         android:layout_width="match_parent"
         android:layout_height="50dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginRight="16dp"
+        android:backgroundTint="#FFFFFF"
         android:text="Hygiene beim Husten und Niesen" />
 
     <Button
         android:id="@+id/btnLib5"
         android:layout_width="match_parent"
         android:layout_height="50dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginRight="16dp"
+        android:backgroundTint="#FFFFFF"
         android:text="Filme für Kinder" />
 
     <Button
         android:id="@+id/btnLib6"
         android:layout_width="match_parent"
         android:layout_height="50dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginRight="16dp"
+        android:backgroundTint="#FFFFFF"
         android:text="Infos zum Coronavirus" />
 
     <Button
         android:id="@+id/btnLib7"
         android:layout_width="match_parent"
         android:layout_height="50dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginRight="16dp"
+        android:backgroundTint="#FFFFFF"
         android:text="BZgA AUfklärungsvideos" />
 
 </LinearLayout>
