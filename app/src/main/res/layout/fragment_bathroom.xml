@@ -13,14 +13,14 @@
 
         <ImageButton
             android:id="@+id/button_quest_bathroom"
-            android:layout_width="334dp"
-            android:layout_height="416dp"
+            android:layout_width="301dp"
+            android:layout_height="331dp"
             android:backgroundTint="#00FFFFFF"
             android:scaleType="fitCenter"
             android:src="@drawable/seife"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="0.038"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="1.0" />
