@@ -81,14 +81,15 @@ public class Bathroom extends Fragment implements View.OnClickListener {
 
         // Inflate the layout for this fragment
         return inflateFragmentLayout(inflater, container);
-/*        View view = inflater.inflate(R.layout.fragment_bathroom, container, false);
-        Button button3 = (Button) view.findViewById(R.id.button3);
+/*      View view = inflater.inflate(R.layout.fragment_bathroom, container, false);
+
         imageView2 = (ImageView) view.findViewById(R.id.imageView2);
         imageView2.setOnClickListener(this);
         imageView2.setVisibility(View.INVISIBLE);
-        button3.setOnClickListener(this);
+
         return view;*/
     }
+
 
     private View inflateFragmentLayout(LayoutInflater inflater, ViewGroup container) {
         View bathroomView =  inflater.inflate(R.layout.fragment_bathroom, container, false);
@@ -110,7 +111,6 @@ public class Bathroom extends Fragment implements View.OnClickListener {
             }
         });
     }
-
     @Override
     public void onClick(View view) {
 
