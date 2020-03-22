@@ -43,4 +43,10 @@
         android:layout_height="50dp"
         android:text="Infos zum Coronavirus" />
 
+    <Button
+        android:id="@+id/btnLib"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="BZgA AUfklärungsvideos" />
+
 </LinearLayout>
