@@ -1,6 +1,7 @@
 package com.questforultimatehygiene;
 
 import android.app.AlertDialog;
+import android.os.CountDownTimer;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,7 +15,7 @@ import androidx.fragment.app.FragmentActivity;
 public class PopUpHelper {
 
 
-    public void showQuestPopUp(FragmentActivity context, int exp, int questIcon, int background, int questTitleId, int questTitle, int questContentId, int questContent) {
+    public void showQuestPopUp(FragmentActivity context, int exp, int questIcon, int background, int questTitleId, final int questTitle, int questContentId, int questContent) {
         MainActivity.player.addExperience(exp);
 
         // get the current activity viewgroup
@@ -35,19 +36,42 @@ public class PopUpHelper {
         ImageView questImage = dialogView.findViewById(R.id.quest_image);
         questImage.setImageDrawable(context.getResources().getDrawable(questIcon));
 
-        Button startQuest = dialogView.findViewById(R.id.start_quest_button);
+        final Button startQuest = dialogView.findViewById(R.id.start_quest_button);
+        final TextView timer_textView = (TextView) dialogView.findViewById(R.id.timer_textView);
+
+        final FragmentActivity fin_context = context;
         startQuest.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 // TODO dismiss the popup
                 // TODO start the actual Quest
+                if (questTitle == R.string.quest_handwashing_title) {
+                    startQuest.setVisibility(View.INVISIBLE);
+                    timer_textView.setVisibility(View.VISIBLE);
+                    startCountdownTimer(timer_textView);
+                }
             }
         });
+
+
 
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
         builder.setView(dialogView);
 
         AlertDialog alertDialog = builder.create();
         alertDialog.show();
+    }
+    public void startCountdownTimer(final TextView timer) {
+        CountDownTimer handwashing_timer = new CountDownTimer(30000, 1000) {
+            @Override
+            public void onTick(long l) {
+                timer.setText(""+l / 1000);
+            }
+
+            @Override
+            public void onFinish() {
+                timer.setText("Gut gemacht!");
+            }
+        }.start();
     }
 }
