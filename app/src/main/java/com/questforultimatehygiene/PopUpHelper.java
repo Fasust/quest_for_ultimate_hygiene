@@ -58,7 +58,9 @@ public class PopUpHelper {
                     timer_textView.setVisibility(View.VISIBLE);
                     progressBar.setVisibility(View.VISIBLE);
                     startCountdownTimer(timer_textView, context, progressBar);
-                    startSong(context);
+
+                    //Song muted for presentation. Sorry boys
+                    //startSong(context);
                 }
             }
         });
@@ -111,7 +113,7 @@ public class PopUpHelper {
                 player.release();
             }
         });
-        // Song muted for presentation. Sorry boys
-        // player.start();
+
+        player.start();
     }
 }
