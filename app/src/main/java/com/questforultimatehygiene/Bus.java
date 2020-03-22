@@ -72,7 +72,7 @@ public class Bus extends Fragment {
 
         Button startButton = (Button)busView.findViewById(R.id.button_quest_bus);
         setOnClickForStartQuestButton(startButton);
-        Animation animation = AnimationUtils.loadAnimation(getContext(), R.anim.blink_anim);
+        Animation animation = AnimationUtils.loadAnimation(getContext(), R.anim.bounce);
         startButton.startAnimation(animation);
         return busView;
     }

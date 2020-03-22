@@ -9,7 +9,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/flur_no_mantel">
+        android:background="@mipmap/flur_no_mantel">
 
         <Button
             android:id="@+id/button_quest_flur"
