@@ -7,7 +7,10 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 
 /**
@@ -56,12 +59,36 @@ public class Bus extends Fragment {
         }
     }
 
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_bus, container, false);
-        Button button3 = (Button) view.findViewById(R.id.button3);
+        View view = inflateFragmentLayout(inflater, container);
         return view;
+    }
+    private View inflateFragmentLayout(LayoutInflater inflater, ViewGroup container) {
+        View busView =  inflater.inflate(R.layout.fragment_bus, container, false);
+
+        Button startButton = (Button)busView.findViewById(R.id.button_quest_bus);
+        setOnClickForStartQuestButton(startButton);
+        Animation animation = AnimationUtils.loadAnimation(getContext(), R.anim.blink_anim);
+        startButton.startAnimation(animation);
+        return busView;
+    }
+
+    private void setOnClickForStartQuestButton(Button startButton) {
+        startButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                new PopUpHelper().showQuestPopUp(
+                        getActivity(),51, R.drawable.hand_wash_with_bottle,
+                        R.drawable.popup_background_roundedcorners_blue,
+                        R.drawable.button_background_roundedcorners_lightblue,
+//                        R.style.Colored_Button_LightBlue,
+                        R.id.quest_name, R.string.quest_handwashing_title,
+                        R.id.quest_description, R.string.quest_handwashing_content);
+            }
+        });
     }
 }
