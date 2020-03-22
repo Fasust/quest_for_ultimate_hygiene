@@ -11,8 +11,7 @@
         android:id="@+id/button_quest_kitchen"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#E6EE9C"
-        android:text="Küche"
+        android:background="@mipmap/kueche"
         android:visibility="visible" />
 
 </LinearLayout>

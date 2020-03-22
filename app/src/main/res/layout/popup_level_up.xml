@@ -8,6 +8,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="fill_parent"
+        android:background="#033B4B"
         android:minHeight="750dp">
 
         <com.airbnb.lottie.LottieAnimationView
@@ -29,6 +30,7 @@
             android:text="Herzlichen Glückwunsch!"
             android:textAlignment="center"
             android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            android:textColor="#CBFFFFFF"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/trophie" />
@@ -41,6 +43,7 @@
             android:text="Du bist aufgestiegen zu einem"
             android:textAlignment="center"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="#CBFFFFFF"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
@@ -54,7 +57,8 @@
             android:text="Sauberkeits Novize"
             android:textAlignment="center"
             android:textAppearance="@style/TextAppearance.AppCompat.Display2"
-            android:textColor="#00BCD4"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView3" />
@@ -65,8 +69,11 @@
             android:layout_height="40dp"
             android:layout_marginTop="16dp"
             android:background="@null"
+            android:backgroundTint="#FFFFFF"
+            android:foregroundTint="#FFFFFF"
             android:onClick="onClick"
             android:src="@drawable/share2"
+            android:tint="#CBFFFFFF"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toEndOf="@+id/textView4"
