@@ -5,7 +5,10 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 import androidx.fragment.app.Fragment;
 
@@ -58,6 +61,7 @@ public class Flur extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+
     }
 
     @Override
@@ -66,7 +70,11 @@ public class Flur extends Fragment {
         // Save references to relevant quests within the Flur
 
         // Inflate the layout for this fragment
-        return inflateFragmentLayout(inflater, container);
+        View view = inflateFragmentLayout(inflater, container);
+        Button button_quest_flur = (Button)view.findViewById(R.id.button_quest_flur);
+        Animation animation = AnimationUtils.loadAnimation(getContext(), R.anim.lefttoright);
+        button_quest_flur.startAnimation(animation);
+        return view;
     }
 
     private View inflateFragmentLayout(LayoutInflater inflater, ViewGroup container) {

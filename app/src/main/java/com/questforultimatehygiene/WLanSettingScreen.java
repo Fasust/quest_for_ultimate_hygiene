@@ -30,7 +30,7 @@ public class WLanSettingScreen extends Fragment {
         simpleList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(WLanSettingScreen.this.getContext(),"WLAN gesetz: " + wLanList[position],Toast.LENGTH_LONG).show();
+                Toast.makeText(WLanSettingScreen.this.getContext(),"WLAN gesetzt: " + wLanList[position],Toast.LENGTH_LONG).show();
             }
         });
 
