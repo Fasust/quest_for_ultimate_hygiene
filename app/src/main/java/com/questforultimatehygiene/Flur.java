@@ -39,7 +39,7 @@ public class Flur extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment Frontdoor.
+     * @return A new instance of fragment Flur.
      */
 
     public static Flur newInstance(String param1, String param2) {
@@ -70,11 +70,11 @@ public class Flur extends Fragment {
     }
 
     private View inflateFragmentLayout(LayoutInflater inflater, ViewGroup container) {
-        View frontdoorView =  inflater.inflate(R.layout.fragment_frontdoor, container, false);
+        View flurView =  inflater.inflate(R.layout.fragment_flur, container, false);
 
-        Button startButton = frontdoorView.findViewById(R.id.button_quest_frontdoor);
+        Button startButton = flurView.findViewById(R.id.button_quest_flur);
         setOnClickForStartQuestButton(startButton);
-        return frontdoorView;
+        return flurView;
     }
 
     private void setOnClickForStartQuestButton(Button startButton) {
