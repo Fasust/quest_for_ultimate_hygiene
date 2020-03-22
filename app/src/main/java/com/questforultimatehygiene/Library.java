@@ -1,6 +1,7 @@
 package com.questforultimatehygiene;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 
@@ -9,6 +10,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 
 /**
@@ -19,7 +21,7 @@ import android.view.ViewGroup;
  * Use the {@link Library#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class Library extends Fragment {
+public class Library extends Fragment implements View.OnClickListener {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -66,7 +68,62 @@ public class Library extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_library, container, false);
+        View view = inflater.inflate(R.layout.fragment_library, container, false);
+        Button btnLib1 = (Button)view.findViewById(R.id.btnLib1);
+        Button btnLib2 = (Button)view.findViewById(R.id.btnLib2);
+        Button btnLib3 = (Button)view.findViewById(R.id.btnLib3);
+        Button btnLib4 = (Button)view.findViewById(R.id.btnLib4);
+        Button btnLib5 = (Button)view.findViewById(R.id.btnLib5);
+        Button btnLib6 = (Button)view.findViewById(R.id.btnLib6);
+        btnLib1.setOnClickListener(this);
+        btnLib2.setOnClickListener(this);
+        btnLib3.setOnClickListener(this);
+        btnLib4.setOnClickListener(this);
+        btnLib5.setOnClickListener(this);
+        btnLib6.setOnClickListener(this);
+        return view;
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.btnLib1:
+                String url = "https://grippeweb.rki.de/Images/Hygienetipps.png";
+                Intent i = new Intent(Intent.ACTION_VIEW);
+                i.setData(Uri.parse(url));
+                startActivity(i);
+                break;
+            case R.id.btnLib2:
+                String url2 = "https://grippeweb.rki.de/Info.aspx";
+                Intent i2 = new Intent(Intent.ACTION_VIEW);
+                i2.setData(Uri.parse(url2));
+                startActivity(i2);
+                break;
+            case R.id.btnLib3:
+                String url3 = "https://www.infektionsschutz.de/haendewaschen.html";
+                Intent i3 = new Intent(Intent.ACTION_VIEW);
+                i3.setData(Uri.parse(url3));
+                startActivity(i3);
+                break;
+            case R.id.btnLib4:
+                String url4 = "https://www.infektionsschutz.de/hygienetipps/hygiene-beim-husten-und-niesen.html";
+                Intent i4 = new Intent(Intent.ACTION_VIEW);
+                i4.setData(Uri.parse(url4));
+                startActivity(i4);
+                break;
+            case R.id.btnLib5:
+                String url5 = "https://www.infektionsschutz.de/mediathek/filme/filme-fuer-kinder.html";
+                Intent i5 = new Intent(Intent.ACTION_VIEW);
+                i5.setData(Uri.parse(url5));
+                startActivity(i5);
+                break;
+            case R.id.btnLib6:
+                String url6 = "https://www.infektionsschutz.de/coronavirus/";
+                Intent i6 = new Intent(Intent.ACTION_VIEW);
+                i6.setData(Uri.parse(url6));
+                startActivity(i6);
+                break;
+        }
     }
 
 

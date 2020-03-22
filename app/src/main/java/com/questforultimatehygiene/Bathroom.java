@@ -83,11 +83,11 @@ public class Bathroom extends Fragment implements View.OnClickListener {
         // Inflate the layout for this fragment
 
         View view = inflater.inflate(R.layout.fragment_bathroom, container, false);
-        Button button3 = (Button) view.findViewById(R.id.button3);
+
         imageView2 = (ImageView) view.findViewById(R.id.imageView2);
         imageView2.setOnClickListener(this);
         imageView2.setVisibility(View.INVISIBLE);
-        button3.setOnClickListener(this);
+
         return view;
     }
 
