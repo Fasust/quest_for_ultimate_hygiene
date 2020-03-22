@@ -111,6 +111,7 @@ public class PopUpHelper {
                 player.release();
             }
         });
-        player.start();
+        // Song muted for presentation. Sorry boys
+        // player.start();
     }
 }
