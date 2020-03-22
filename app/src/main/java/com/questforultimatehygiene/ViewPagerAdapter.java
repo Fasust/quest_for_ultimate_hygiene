@@ -16,9 +16,9 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
             case 0:
                 return new Flur();
             case 1:
-                return new Kitchen();
-            case 2:
                 return new Bathroom();
+            case 2:
+                return new Kitchen();
             case 3:
                 return new Bus();
             case 4:
