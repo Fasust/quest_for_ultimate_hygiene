@@ -24,7 +24,7 @@ import java.util.TimerTask;
  * Use the {@link Bathroom#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class Bathroom extends Fragment implements View.OnClickListener {
+public class Bathroom extends Fragment  {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
@@ -113,10 +113,7 @@ public class Bathroom extends Fragment implements View.OnClickListener {
             }
         });
     }
-    @Override
-    public void onClick(View view) {
 
-    }
 
     public interface OnFragmentInteractionListener {
         void onFragmentInteraction(Uri uri);
